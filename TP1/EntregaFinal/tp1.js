@@ -11,9 +11,6 @@ let goma = document.getElementById('goma');
 //Llama a la función de borrar el canvas
 limpiar.addEventListener('click', borrarCanvas);
 
-//Llama a la función de borrado
-goma.addEventListener('click', borrar);
-
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
 canvas.addEventListener('mousedown', apretarClick);
