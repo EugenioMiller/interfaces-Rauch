@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Entrega Visualizacion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Entrega del trabajo</h1>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <input type="color" id="color" oninput="defColor(this.value);">
+    <input type="range" id="grosor" min="1" max="50" value="5" oninput="defGrosor(this.value);"> Tamaño
+    <button id="limpiar">Limpiar canvas</button>
+    <button id="goma">Goma de borrar</button>
+
+    <script src="tp1.js"></script>
 </body>
 </html>
