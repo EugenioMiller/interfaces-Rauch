@@ -7,6 +7,14 @@ let rect = canvas.getBoundingClientRect();
 let limpiar = document.getElementById('limpiar');
 let color = 'black';
 let goma = document.getElementById('goma');
+let width = canvas.width;
+let height = canvas.height;
+let cargar = document.getElementById('subir');
+
+
+//Subir una imagen
+cargar.addEventListener('change', cargarImagen);
+
 
 //Llama a la función de borrar el canvas
 limpiar.addEventListener('click', borrarCanvas);
@@ -53,7 +61,7 @@ function soltarClick(e){
 
 function borrarCanvas(){ 
     canvas.width = 800;
-    canvas.height = 600;
+    canvas.height = 500;
 }
 
 function defColor(c){
@@ -73,4 +81,25 @@ function dibujar(x1, y1, x2, y2){
     ctx.lineTo(x2, y2);
     ctx.stroke();
     ctx.closePath();
+}
+
+//Función para cargar imagen
+function cargarImagen(){
+    let reader = new FileReader();
+        reader.onload = function (event) {
+            let img = new Image();
+            img.onload = function () {
+                if (img.width > window.screen.width || img.height > window.screen.height) {
+                    alert("No se acepta el tamaño de la imagen.");
+                    return;
+                }
+                else {
+                    img.width = width;
+                    img.height = height;
+                }
+                ctx.drawImage(img, 0, 0);
+            }
+            img.src = event.target.result;
+        }
+        reader.readAsDataURL(cargar.files[0]);
 }
