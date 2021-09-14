@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Entrega del trabajo</h1>
-
-    <canvas id="canvas" width="800" height="600"></canvas>
+    <h1 class="titulo">Entrega del trabajo</h1>
+    <div id="btn">
     <input type="color" id="color" oninput="defColor(this.value);">
     <input type="range" id="grosor" min="1" max="50" value="5" oninput="defGrosor(this.value);"> Tamaño
-    <button id="limpiar">Limpiar canvas</button>
     <button id="goma">Goma de borrar</button>
+    <button id="limpiar">Limpiar canvas</button>
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
 
     <script src="tp1.js"></script>
 </body>

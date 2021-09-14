@@ -10,12 +10,23 @@ let goma = document.getElementById('goma');
 
 //Llama a la función de borrar el canvas
 limpiar.addEventListener('click', borrarCanvas);
-
+goma.addEventListener('click',borrar);
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
 canvas.addEventListener('mousedown', apretarClick);
 canvas.addEventListener('mouseup', soltarClick);
+function borrar(e){
+        ctx.beginPath();
+        color='white';
+        grosor=8;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = color;
+        ctx.lineWidth = grosor;
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.closePath();
 
+}
 function movimientoMouse(e){
 
     if (down === true){

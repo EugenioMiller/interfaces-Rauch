@@ -1,4 +1,22 @@
-canvas {
-    border: 1px solid black;
+body {
+    background: linear-gradient(to right, #2c3e50, #fd746c);
+}
+#canvas {
+    border: 3px solid black;
+    display: block;
     background-color: white;
+    margin: 0 auto; 
+}
+#btn{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-inline:270px;
+}
+.titulo{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 45px;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    color:black;
+    letter-spacing: 4px;
 }
