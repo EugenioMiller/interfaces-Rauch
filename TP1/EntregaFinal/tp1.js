@@ -23,6 +23,7 @@ goma.addEventListener('click',borrar);
 
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
+document.getElementById("binarizacion").addEventListener('click', filtroGrises);
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
@@ -95,13 +96,15 @@ function cargarImagen(){
             let img = new Image();
             img.onload = function () {
                 if (img.width > window.screen.width || img.height > window.screen.height) {
-                    alert("No se acepta el tamaño de la imagen.");
+                    alert("El tamaño de la imagen es muy grande.");
                     return;
                 }
                 else {
                     canvas.width = img.width;
                     canvas.height = img.height;
                 }
+                width = canvas.width;
+                height = canvas.height;
                 ctx.drawImage(img, 0, 0);
             }
             img.src = event.target.result;
@@ -127,8 +130,19 @@ function getAlpha(index,imageData){
     return  imageData.data[index + 3];
 }
 
+//Funcion de setPixel
+//reemplaza el rgb un pixel de una imagen
+function setPixel(imageData, x, y, r, g, b) {
+    let index = (x + y * imageData.width) * 4;
+    imageData.data[index + 0] = r;
+    imageData.data[index + 1] = g;
+    imageData.data[index + 2] = b;
+}
+
 
 //Funciones de filtros
+
+//Filtro negativo
 function filtroNegativo(){
     
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
@@ -148,4 +162,27 @@ function filtroNegativo(){
         }
     }
     ctx.putImageData(imageData, 0, 0);          
+}
+
+//Filtro de escala de grises
+function filtroGrises() {
+    let a = 255;
+    let imageData = ctx.getImageData(0, 0, width, height);
+    aplicarGrises(imageData);
+    ctx.putImageData(imageData, 0, 0) * 4;
+}
+
+//Función para aplicar escala de grises
+function aplicarGrises(imageData) {
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let index = (x + y * imageData.width) * 4;
+            var grey = (imageData.data[index + 0] + imageData.data[index + 1] + imageData.data[index + 2]) / 3;
+            let r = grey;
+            let g = grey;
+            let b = grey;
+            setPixel(imageData, x, y, r, g, b);
+
+        }
+    }
 }
