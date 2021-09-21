@@ -19,6 +19,11 @@ cargar.addEventListener('change', cargarImagen);
 //Llama a la función de borrar el canvas
 limpiar.addEventListener('click', borrarCanvas);
 goma.addEventListener('click',borrar);
+
+
+//Filtros
+document.getElementById("negativo").addEventListener('click', filtroNegativo);
+
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
 canvas.addEventListener('mousedown', apretarClick);
@@ -94,12 +99,53 @@ function cargarImagen(){
                     return;
                 }
                 else {
-                    img.width = width;
-                    img.height = height;
+                    canvas.width = img.width;
+                    canvas.height = img.height;
                 }
                 ctx.drawImage(img, 0, 0);
             }
             img.src = event.target.result;
         }
         reader.readAsDataURL(cargar.files[0]);
+}
+
+//Tomar valores
+function getRed(index,imageData){
+
+    return  imageData.data[index + 0];
+}
+
+function getGreen(index,imageData){
+    return  imageData.data[index + 1];
+}
+    
+function getBlue(index,imageData){
+    return  imageData.data[index + 2];
+}
+
+function getAlpha(index,imageData){
+    return  imageData.data[index + 3];
+}
+
+
+//Funciones de filtros
+function filtroNegativo(){
+    
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let w = imageData.width;
+    let h = imageData.height;
+    for (let x = 0; x < w; x++){
+        for (let y = 0; y < h; y++){
+            let index = (x + w * y)*4;
+            let r = getRed(index,imageData);
+            let g = getGreen(index,imageData);
+            let b = getBlue(index,imageData);
+            
+            imageData.data[index + 0] = 255 - r;
+            imageData.data[index + 1] = 255 - g;
+            imageData.data[index + 2] = 255 - b;
+        
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);          
 }
