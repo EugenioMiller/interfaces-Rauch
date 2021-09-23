@@ -21,11 +21,17 @@ cargar.addEventListener('change', cargarImagen);
 limpiar.addEventListener('click', borrarCanvas);
 goma.addEventListener('click',borrar);
 
+//Guardar el canvas
+document.getElementById("guardar").addEventListener('click',guardar);
 
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
 document.getElementById("binarizacion").addEventListener('click', filtroGrises);
+<<<<<<< HEAD
 document.getElementById('brillo').addEventListener('click', aplicarBrillo);
+=======
+document.getElementById("blur").addEventListener('click', filtroBlur);
+>>>>>>> eeeb9a73627cd16b837901438d2d25f7d357814f
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
@@ -210,3 +216,69 @@ function aplicarBrillo() {
     }
     ctx.putImageData(imageData, 0, 0);
 }
+//Funcion para aplicar el filtro Blur
+function filtroBlur(){
+    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    let width=imageData.width;
+    let height=imageData.height;
+    for (let x = 1; x < width-1; x++) {
+        for (let y = 1; y < height-1; y++) {
+            let index = (x + y * width) * 4;
+            let r=promR(x,y,width,imageData);
+            let g=promG(x,y,width,imageData);
+            let b=promB(x,y,width,imageData);
+            imageData.data[index + 0] =  r;
+            imageData.data[index + 1] =  g;
+            imageData.data[index + 2] =  b;
+            setPixel(imageData, x, y, r, g, b);
+        }
+    }
+    ctx.putImageData(imageData,0,0);
+}   
+function promR(x,y,width,imageData){
+    let prom = 0;
+    let index;
+    for(i = x-1; i < x+2; i++){
+        for(j = y-1; j < y+2; j++){
+            index = ((i + (width * j))*4);
+            prom += getRed(index,imageData);
+        }
+    }
+    return prom/9;
+}
+function promG(x,y,width,imageData){
+    let prom = 0;
+    let index;
+    for(i = x-1; i < x+2; i++){
+        for(j = y-1; j < y+2; j++){
+            index = ((i + (width * j))*4);
+            prom += getGreen(index,imageData);
+        }
+    }
+    return prom/9;
+}
+function promB(x,y,width,imageData){
+    let prom = 0;
+    let index;
+    for(i = x-1; i < x+2; i++){
+        for(j = y-1; j < y+2; j++){
+            index = ((i + (width * j))*4);
+            prom += getBlue(index,imageData);
+        }
+    }
+    return prom/9;
+}
+
+function guardar(){
+    if(window.navigator.msSaveBlod){
+        window.navigator.msSaveBlod(canvas.msToBlod(),"canvas-image.png");
+    }
+    else{
+        let a=document.createElement("a");
+        document.body.appendChild(a)
+        a.href=canvas.toDataURL();
+        a.download="canvas-image.png";
+        a.click();
+        document.body.removeChild(a);
+    }
+};
