@@ -12,6 +12,7 @@ let height = canvas.height;
 let cargar = document.getElementById('subir');
 
 
+
 //Subir una imagen
 cargar.addEventListener('change', cargarImagen);
 
@@ -24,6 +25,7 @@ goma.addEventListener('click',borrar);
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
 document.getElementById("binarizacion").addEventListener('click', filtroGrises);
+document.getElementById('brillo').addEventListener('click', aplicarBrillo);
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
@@ -185,4 +187,26 @@ function aplicarGrises(imageData) {
 
         }
     }
+}
+
+
+//Función para aplicar brillo a la imagen
+function aplicarBrillo() {
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let brillo = 100 - parseInt(document.getElementById("porcentaje").value);
+    for (let y = 0; y < imageData.height; y++) {
+            for (let x = 0; x < imageData.width; x++) {
+                    let index = (x + y * imageData.width) * 4;
+                    let r = getRed(index, imageData);
+                    let g = getGreen(index, imageData);
+                    let b = getBlue(index, imageData);
+                    r = (r * 100) / brillo;
+                    g = (g * 100) / brillo;
+                    b = (b * 100) / brillo;
+                    imageData.data[index + 0] = r;
+                    imageData.data[index + 1] = g;
+                    imageData.data[index + 2] = b;
+            }
+    }
+    ctx.putImageData(imageData, 0, 0);
 }
