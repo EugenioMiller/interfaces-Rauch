@@ -30,6 +30,8 @@ document.getElementById("binarizacion").addEventListener('click', filtroGrises);
 document.getElementById('brillo').addEventListener('click', aplicarBrillo);
 document.getElementById("blur").addEventListener('click', filtroBlur);
 document.getElementById("saturar").addEventListener('click', saturar);
+document.getElementById("sepia").addEventListener('click',filtroSepia);
+document.getElementById("binario").addEventListener('click',filtroBinario);
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
@@ -317,3 +319,45 @@ function saturar() {
     }
     ctx.putImageData(imageData,0,0);
 }
+//Funcion filtro sepi
+function filtroSepia(){
+    let imageData=ctx.getImageData(0,0,canvas.width,canvas.height)
+    let width=imageData.width;
+    let height=imageData.height;
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let index = ((x + (width * y))*4);
+            let r=getRed(index,imageData);
+            let g=getGreen(index,imageData);
+            let b= getBlue(index,imageData);
+            let luminosidad=.3 * r + .6 *  g + .1 *b;
+            imageData.data[index + 0] = Math.min(luminosidad + 40,255);
+            imageData.data[index + 1] = Math.min(luminosidad + 15,255);
+            imageData.data[index + 2] =luminosidad;
+        }
+    }
+    ctx.putImageData(imageData,0,0);
+}
+//Filtro de binarizacion
+ function filtroBinario(){
+    let imageData=ctx.getImageData(0,0,canvas.width,canvas.height)
+    let width=imageData.width;
+    let height=imageData.height;
+    let umbral=127;
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let index = ((x + (width * y))*4);
+            let r=getRed(index,imageData);
+            if(r>umbral){
+                r=255;
+            }
+            else{
+                r=0;
+            }
+            imageData.data[index+0]=r;
+            imageData.data[index+1]=r;
+            imageData.data[index+2]=r;
+        }
+    }
+    ctx.putImageData(imageData,0,0);
+ }
