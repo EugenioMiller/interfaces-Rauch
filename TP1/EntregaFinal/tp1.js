@@ -29,6 +29,7 @@ document.getElementById("negativo").addEventListener('click', filtroNegativo);
 document.getElementById("binarizacion").addEventListener('click', filtroGrises);
 document.getElementById('brillo').addEventListener('click', aplicarBrillo);
 document.getElementById("blur").addEventListener('click', filtroBlur);
+document.getElementById("saturar").addEventListener('click', saturar);
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
@@ -279,3 +280,40 @@ function guardar(){
         document.body.removeChild(a);
     }
 };
+
+
+function saturar() {
+    //Se modifica el valor RGB de cada pixel, buscando el color predominante en cada uno
+    //yse potencia en mayor medida que los otros con la diferencia entre el predominante y
+    // el valor mas bajo (delta) y restandole el mismo valor delta al valor mas chico.
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            let index = (x + y * width) * 4;
+            let r = imageData.data[index];
+            let g = imageData.data[index + 1];
+            let b = imageData.data[index + 2];
+
+            let maxColor = Math.max(r, g, b);
+            let minColor = Math.min(r, g, b);
+            let delta = maxColor - minColor;
+
+            if (r == maxColor)
+                r += delta;
+            else if (g == maxColor)
+                g += delta;
+            else if (b == maxColor)
+                b += delta;
+                
+            if (r == minColor)
+                r -= delta;
+            else if (g == minColor)
+                g -= delta;
+            else if (b == minColor)
+                b -= delta;
+
+            setPixel(imageData, x, y, r, g, b);
+        }
+    }
+    ctx.putImageData(imageData,0,0);
+}
