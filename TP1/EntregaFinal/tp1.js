@@ -27,11 +27,8 @@ document.getElementById("guardar").addEventListener('click',guardar);
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
 document.getElementById("binarizacion").addEventListener('click', filtroGrises);
-<<<<<<< HEAD
 document.getElementById('brillo').addEventListener('click', aplicarBrillo);
-=======
 document.getElementById("blur").addEventListener('click', filtroBlur);
->>>>>>> eeeb9a73627cd16b837901438d2d25f7d357814f
 
 //Creamos los eventos
 canvas.addEventListener('mousemove', movimientoMouse);
