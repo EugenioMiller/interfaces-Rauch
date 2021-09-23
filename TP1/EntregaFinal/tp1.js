@@ -20,6 +20,8 @@ cargar.addEventListener('change', cargarImagen);
 limpiar.addEventListener('click', borrarCanvas);
 goma.addEventListener('click',borrar);
 
+//Guardar el canvas
+document.getElementById("guardar").addEventListener('click',guardar);
 
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
@@ -239,3 +241,17 @@ function promB(x,y,width,imageData){
     }
     return prom/9;
 }
+
+function guardar(){
+    if(window.navigator.msSaveBlod){
+        window.navigator.msSaveBlod(canvas.msToBlod(),"canvas-image.png");
+    }
+    else{
+        let a=document.createElement("a");
+        document.body.appendChild(a)
+        a.href=canvas.toDataURL();
+        a.download="canvas-image.png";
+        a.click();
+        document.body.removeChild(a);
+    }
+};
