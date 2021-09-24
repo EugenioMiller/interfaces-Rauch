@@ -26,7 +26,7 @@ document.getElementById("guardar").addEventListener('click',guardar);
 
 //Filtros
 document.getElementById("negativo").addEventListener('click', filtroNegativo);
-document.getElementById("binarizacion").addEventListener('click', filtroGrises);
+document.getElementById("grises").addEventListener('click', filtroGrises);
 document.getElementById('brillo').addEventListener('click', aplicarBrillo);
 document.getElementById("blur").addEventListener('click', filtroBlur);
 document.getElementById("saturar").addEventListener('click', saturar);
@@ -339,6 +339,7 @@ function filtroSepia(){
     ctx.putImageData(imageData,0,0);
 }
 //Filtro de binarizacion
+//
  function filtroBinario(){
     let imageData=ctx.getImageData(0,0,canvas.width,canvas.height)
     let width=imageData.width;
@@ -348,11 +349,18 @@ function filtroSepia(){
         for (let y = 0; y < height; y++) {
             let index = ((x + (width * y))*4);
             let r=getRed(index,imageData);
-            if(r>umbral){
+            let g=getGreen(index,imageData);
+            let b=getBlue(index,imageData);
+            let prom=(r+g+b)/3;
+            if(prom>umbral){
                 r=255;
+                g=255;
+                b=255;
             }
             else{
                 r=0;
+                g=0;
+                b=0;
             }
             imageData.data[index+0]=r;
             imageData.data[index+1]=r;
