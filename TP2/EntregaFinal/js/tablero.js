@@ -12,8 +12,11 @@ class Tablero{
             </canvas>`;
             let canvas = document.getElementById('canvas');
             let ctx =canvas.getContext('2d');
-               canvas.width=600;
-               canvas.height=700;
+            canvas.width=600;
+            canvas.height=700;
+            let matriz = new Array();
+            dibujaEscenario(matriz, ctx, fila, columna);
+            
         }
         else if(this.valor==5){
             let fila=7;
@@ -36,10 +39,21 @@ class Tablero{
             let ctx =canvas.getContext('2d');
                canvas.width=800;
                canvas.height=900;
-        }
+            }
        }
 
+}
+
+function dibujaEscenario(matriz, ctx, f, c){
+    for (let x = 0; x < f; x++){
+        matriz[x] = new Array();
+        for (let y = 0; y < c; y++){
+            matriz [x][y] = 0;
+        }
     }
-//metodos
 
-
+    ctx.beginPath();
+    ctx.arc(20, 20, 20, 0, 2 * Math.PI);
+    ctx.stroke();
+    
+}

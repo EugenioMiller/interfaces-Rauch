@@ -17,5 +17,7 @@ function nuevoTablero(valor){
   
     let t1=new Tablero(valor);
     t1.crearTablero();
+    let botones = document.getElementById('botones');
+    botones.setAttribute("hidden", "");
     
 }
