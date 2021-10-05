@@ -19,5 +19,5 @@ function nuevoTablero(valor){
     t1.crearTablero();
     let botones = document.getElementById('botones');
     botones.setAttribute("hidden", "");
-    
+    t1.pintarCirculo(125, 125);
 }
