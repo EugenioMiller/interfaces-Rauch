@@ -12,10 +12,10 @@ class Tablero{
             </canvas>`;
             let canvas = document.getElementById('canvas');
             let ctx =canvas.getContext('2d');
-            canvas.width=600;
-            canvas.height=700;
+            canvas.width=350;
+            canvas.height=300;
             let matriz = new Array();
-            dibujaEscenario(matriz, ctx, fila, columna);
+            dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
             
         }
         else if(this.valor==5){
@@ -26,10 +26,12 @@ class Tablero{
             </canvas>`;
             let canvas = document.getElementById('canvas');
             let ctx =canvas.getContext('2d');
-               canvas.width=700;
-               canvas.height=800;
+               canvas.width=400;
+               canvas.height=350;
+               let matriz = new Array();
+            dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
         }
-        else{
+        else if(this.valor==6){
             let fila=8;
             let columna=9;
             let tablero=document.getElementById("tablero");
@@ -37,23 +39,23 @@ class Tablero{
             </canvas>`;
             let canvas = document.getElementById('canvas');
             let ctx =canvas.getContext('2d');
-               canvas.width=800;
-               canvas.height=900;
+               canvas.width=450;
+               canvas.height=400;
+               let matriz = new Array();
+               dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
             }
        }
 
 }
 
 function dibujaEscenario(matriz, ctx, f, c){
-    for (let x = 0; x < f; x++){
+    for (let x = 25; x < f; x=x+50){
         matriz[x] = new Array();
-        for (let y = 0; y < c; y++){
-            matriz [x][y] = 0;
+        for (let y = 25; y < c; y=y+50){
+            ctx.beginPath();
+            matriz [x][y] =ctx.arc(x, y, 22, 0, 2 * Math.PI); ;
+            ctx.stroke();
         }
     }
-
-    ctx.beginPath();
-    ctx.arc(20, 20, 20, 0, 2 * Math.PI);
-    ctx.stroke();
-    
+  
 }
