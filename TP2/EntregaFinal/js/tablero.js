@@ -40,17 +40,11 @@ class Tablero{
         }
     }
 
-    pintarCirculo(x, y){
+    pintarCirculo(x, y, ficha){
         let canvas = document.getElementById('canvas');
         let ctx =canvas.getContext('2d');
         if( matriz[x][y] === 0)
-            matriz[x][y] = this.pintar(ctx, x, y);
-    }
-
-    pintar(ctx, x, y){
-        ctx.arc(x,y,22,0,2*Math.PI);
-        ctx.fillStyle = "#6ab150";
-        ctx.fill();
+            matriz[x][y] = ficha;
     }
 
 }
