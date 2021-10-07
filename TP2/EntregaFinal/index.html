@@ -6,23 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
     <title>Entrega Visualizacion</title>
+    <script src="js/ficha.js"></script>
+    <script src="js/jugador.js"></script>
+    <script src="js/juego.js"></script>
+    <script src="js/tablero.js"></script>
 </head>
 <body>
     <h1>Cuatro en línea</h1>
     <div id="ficha">
-        <button id="btn-c1" value="green">verde</button>
-        <button id="btn-c2" value="red">rojo</button>
-        <button id="btn-c3" value="blue">azul</button>
+        <button id="c1" value="green">verde</button>
+        <button id="c2" value="red">rojo</button>
+        <button id="c3" value="blue">azul</button>
     </div>
     <div id="botones">
-    <button id="btn-4" value="4">4 en lineas</button>
-    <button id="btn-5" value="5">5 en lineas</button>
-    <button id="btn-6" value="6">6 en lineas</button>
+    <button id="btn4" value="4">4 en lineas</button>
+    <button id="btn5" value="5">5 en lineas</button>
+    <button id="btn6" value="6">6 en lineas</button>
     </div>
-    <div id="tablero"></div>
-<script src="js/main.js"></script>
-<script src="js/tablero.js"></script>
-<script src="js/ficha.js"></script>
-<script src="js/jugador.js"></script>
+    <div id="tablero">
+        <canvas></canvas>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,39 +1,47 @@
-//Inicialización de jugadores
-document.addEventListener('DOMContentLoaded', () =>{
-    let nombre1 = prompt("Indique el nombre del jugador 1");
-    let j1 = new Jugador(nombre1);
-    console.log(j1);
-    let nombre2 = prompt("Indique el nombre del jugador 2");
-    let j2 = new Jugador(nombre2);
+//Instanciamos jugadores
+let j1 = new Jugador("J1");
+let j2 = new Jugador("J2");
+let tablero;
 
 
-
-//
-
-
-let btn4=document.getElementById("btn-4");
-let btn5=document.getElementById("btn-5");
-let btn6=document.getElementById("btn-6");
-
-
-btn4.addEventListener('click',function(){
-    nuevoTablero(btn4.value);
-    j1.seleccionarFicha();
-    console.log(j1);
+//Los jugadores deciden qué modo de juego van a jugar
+document.getElementById("btn4").addEventListener('click', function(){
+    seleccionarModoJuego(btn4.value);
 });
-btn5.addEventListener('click',function(){
-    nuevoTablero(btn5.value);
+document.getElementById("btn5").addEventListener('click', function(){
+    seleccionarModoJuego(btn5.value);
 });
-btn6.addEventListener('click',function(){
-    nuevoTablero(btn6.value);
+document.getElementById("btn6").addEventListener('click', function(){
+    seleccionarModoJuego(btn6.value);
 });
 
-function nuevoTablero(valor){
-    let t1=new Tablero(valor);
-    t1.crearTablero();
-    let botones = document.getElementById('botones');
-    botones.setAttribute("hidden", "");
-    
+function seleccionarModoJuego(valor){
+    tablero = new Tablero(valor);
+    tablero.crearTablero(valor);
+    document.getElementById("botones").setAttribute("hidden", "");
 }
 
+
+//Los jugadores seleccionan la ficha con la que van a jugar 
+document.getElementById("c1").addEventListener('click', function(){
+    elegirFicha(c1.value);
+    this.setAttribute("hidden", "");
 });
+document.getElementById("c2").addEventListener('click', function(){
+    elegirFicha(c2.value);
+    this.setAttribute("hidden", "");
+});
+document.getElementById("c3").addEventListener('click', function(){
+    elegirFicha(c3.value);
+    this.setAttribute("hidden", "");
+});
+
+function elegirFicha(color){
+    if (j1.ficha === null){
+        j1.setFicha(color);
+    }
+    else {
+        j2.setFicha(color);
+        document.getElementById("ficha").setAttribute("hidden", "");
+    }
+}
