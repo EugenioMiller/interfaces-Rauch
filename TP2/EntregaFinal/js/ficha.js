@@ -1,6 +1,7 @@
 class Ficha{
-    constructor(){
+    constructor(valor){
         this.radio = 22;
+        this.color=valor;
     }
 
     /*constructor(x, y){
@@ -15,7 +16,7 @@ class Ficha{
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.radio,0,Math.PI*2,true); 
         ctx.stroke();
-        ctx.fillStyle = "#6ab150";
+        ctx.fillStyle = this.color;
         ctx.fill();
     }
 
