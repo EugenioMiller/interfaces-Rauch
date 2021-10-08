@@ -2,19 +2,21 @@ class Jugador{
     constructor(nombre){
         this.nombre = nombre;
         this.ficha = null;
-    }
+    };
     
     setFicha(color){
         this.ficha = new Ficha(color);
-    }
-    crearFicha(x,y){
+    };
+    insertarFicha(x,y,color){
+        console.log("vamos");
+        console.log(x+y+color);
         let canvas =document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
-        ctx.arc(x,y,this.radio,0,Math.PI*2); 
+        ctx.arc(x,y,this.ficha.radio,0,Math.PI*2); 
         ctx.stroke();
-        ctx.fillStyle = this.ficha.color;
+        ctx.fillStyle =color;
         ctx.fill();
-    }
+    };
  
 }

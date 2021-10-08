@@ -42,11 +42,11 @@ function elegirFicha(color){
     if (j1.ficha === null){
         j1.setFicha(color);
         console.log(j1.ficha.color);
-        j1.ficha.crearFicha(175,175,j1.ficha.color);
+        j1.insertarFicha(175,175,j1.ficha.color);
     }
     else {
         j2.setFicha(color);
-        j2.ficha.crearFicha(175,225,j2.ficha.color);
+        j2.insertarFicha(175,225,j2.ficha.color);
         document.getElementById("ficha").style.display='none';
         let btn=document.getElementById("inicio");
         btn.innerHTML=`<button id="iniciar">Comenzar</button>`;
