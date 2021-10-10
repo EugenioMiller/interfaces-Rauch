@@ -52,6 +52,7 @@ function elegirFicha(color){
         btn.innerHTML=`<button id="iniciar">Comenzar</button>`;
         let iniciar=document.getElementById("iniciar").addEventListener('click', function(){
             juego.iniciarJuego();
+            this.setAttribute("hidden", "");
         })
 
     }

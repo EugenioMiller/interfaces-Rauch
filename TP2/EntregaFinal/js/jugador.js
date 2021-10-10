@@ -2,11 +2,12 @@ class Jugador{
     constructor(nombre){
         this.nombre = nombre;
         this.ficha = null;
-    };
+    }
     
     setFicha(color){
         this.ficha = new Ficha(color);
-    };
+    }
+
     insertarFicha(x,y,color){
         console.log("vamos");
         console.log(x+y+color);
@@ -17,6 +18,5 @@ class Jugador{
         ctx.stroke();
         ctx.fillStyle =color;
         ctx.fill();
-    };
- 
+    }
 }

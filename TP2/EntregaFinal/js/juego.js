@@ -5,18 +5,18 @@ class Juego{
         this.turno=2;
         this.ganador=false;
     }
- iniciarJuego(){
- 
-    if(this.turno%2==0){
-        j1.ficha.crearFicha(25,25,j1.ficha.color);
-        this.turno++;
-    }
-    else{
-        j2.crearFicha(375,25);
-        this.turno++;
-    }
 
+    iniciarJuego(){
  
+        if(this.turno%2==0){
+            j1.ficha.crearFicha(25,25,j1.ficha.color);
+            j1.ficha.mover();
+            this.turno++;
+        }
+        else{
+            j2.crearFicha(375,25);
+            this.turno++;
+        }
 
-}
+    }
 }
