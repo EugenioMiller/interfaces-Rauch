@@ -17,28 +17,27 @@ class Ficha{
         ctx.fill();
     }
 
-    mover(){
+    mover(jugador){
         let canvas =document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         canvas.addEventListener('mousedown', this.onMouseDown, false);
         canvas.addEventListener('mouseup', this.onMouseUp, false);
-        canvas.addEventListener('mousemove', this.onMouseMove, false);
+        canvas.addEventListener('mousemove', () =>
+            this.onMouseMove(event, jugador)
+         , false);
     }
 
     onMouseDown(e){
         isMouseDown = true;
-        
-        if(e.layerX > 0 && e.layerX < 50 && e.layerY > 0 && e.layerY < 50)
-            console.log("osakdaf");
     }
 
     onMouseUp(e){
         isMouseDown = false;
     }
     
-    onMouseMove(e){
+    onMouseMove(e, jugador){
         if(isMouseDown)
-            moverFicha(e.layerX, e.layerY, "red");
+            moverFicha(e.layerX, e.layerY, jugador.ficha.color);
     }
 
 }
