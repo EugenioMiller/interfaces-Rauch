@@ -17,7 +17,6 @@ class Tablero{
             canvas.width=350;
             canvas.height=400;
             this.matriz = dibujaEscenario(this.matriz, ctx, canvas.width, canvas.height);
-            //console.log(matriz);
             
         }
         else if(this.valor==5){
@@ -48,7 +47,6 @@ class Tablero{
         if( matriz[x][y] === 0)
             matriz[x][y] = ficha;
     }
-
 }
 
 function dibujaEscenario(matriz, ctx, f, c){

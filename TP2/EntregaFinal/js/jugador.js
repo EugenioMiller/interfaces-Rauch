@@ -9,8 +9,6 @@ class Jugador{
     }
 
     insertarFicha(x,y,color){
-        console.log("vamos");
-        console.log(x+y+color);
         let canvas =document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
