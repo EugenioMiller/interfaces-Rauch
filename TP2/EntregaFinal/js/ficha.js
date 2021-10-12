@@ -1,5 +1,5 @@
 let lastClickedFigure = null;
-let isMouseDown = false;
+let isMouseDown ;
 
 class Ficha{
     constructor(valor){
@@ -18,21 +18,28 @@ class Ficha{
     }
 
     mover(jugador){
+        let x;
         let canvas =document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         canvas.addEventListener('mousedown', this.onMouseDown, false);
-        canvas.addEventListener('mouseup', this.onMouseUp, false);
+        canvas.addEventListener('mouseup',() =>
+         this.onMouseUp(event),
+          false);
         canvas.addEventListener('mousemove', () =>
-            this.onMouseMove(event, jugador)
+           this.onMouseMove(event, jugador)
          , false);
+         return this.onMouseUp(event);
     }
 
     onMouseDown(e){
         isMouseDown = true;
+        
     }
 
     onMouseUp(e){
         isMouseDown = false;
+        return e.layerX;
+       
     }
     
     onMouseMove(e, jugador){
