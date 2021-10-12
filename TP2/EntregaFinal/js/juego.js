@@ -2,11 +2,13 @@ class Juego{
     constructor(j1, j2){
         this.j1 = j1;
         this.j2 = j2;
-        tablero = null;
+        this.tablero=null;
         this.turno=1;
         this.ganador=false;
     }
-    
+    setTablero(tablero){
+        this.tablero=tablero;
+    }
     iniciarJuego(){
         
         while(this.turno < 3) {

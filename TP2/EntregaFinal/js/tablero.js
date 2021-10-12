@@ -1,9 +1,10 @@
-let matriz = new Array();
+//let matriz = new Array();
 
 
 class Tablero{
     constructor (valor){
         this.valor=valor;
+        this.matriz=new Array();
     }
 
     crearTablero(){
@@ -15,7 +16,8 @@ class Tablero{
             let ctx =canvas.getContext('2d');
             canvas.width=350;
             canvas.height=400;
-            matriz = dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
+            this.matriz = dibujaEscenario(this.matriz, ctx, canvas.width, canvas.height);
+            //console.log(matriz);
             
         }
         else if(this.valor==5){
@@ -26,7 +28,7 @@ class Tablero{
             let ctx =canvas.getContext('2d');
             canvas.width=400;
             canvas.height=450;
-            matriz = dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
+            this.matriz = dibujaEscenario(this.matriz, ctx, canvas.width, canvas.height);
         }
         else if(this.valor==6){
             let tablero=document.getElementById("tablero");
@@ -36,7 +38,7 @@ class Tablero{
             let ctx =canvas.getContext('2d');
             canvas.width=450;
             canvas.height=500;
-            matriz = dibujaEscenario(matriz, ctx, canvas.width, canvas.height);
+            this.matriz = dibujaEscenario(this.matriz, ctx, canvas.width, canvas.height);
         }
     }
 

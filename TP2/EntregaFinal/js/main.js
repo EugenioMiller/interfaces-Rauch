@@ -3,6 +3,7 @@ let j1 = new Jugador("J1");
 let j2 = new Jugador("J2");
 let tablero;
 let juego = new Juego(j1,j2);
+   
 
 //Los jugadores deciden qué modo de juego van a jugar
 document.getElementById("btn4").addEventListener('click', function(){
@@ -21,6 +22,7 @@ function seleccionarModoJuego(valor){
     document.getElementById("botones").setAttribute("hidden", "");
     //una vez que elije el table muestra el color de ficha a jugar
     document.getElementById("ficha").style.display='block';
+    juego.setTablero(tablero);
 }
 
 
