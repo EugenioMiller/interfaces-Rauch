@@ -21,21 +21,21 @@ class Juego{
         let xMax=0;
         let yMax=0;
        if(this.tablero.valor==4){
-            xMax=350;
-            yMax=400;
+            xMax=7;
+            yMax=6;
             contador = 4;
        }
        else if (this.tablero.valor==5){
-           xMax=400;
-           yMax=450;
+           xMax=8;
+           yMax=7;
            contador = 5;
        }
        else{
-           xMax=450;
-           yMax=500;
+           xMax=9;
+           yMax=8;
            contador = 6;
        }
-        while(this.turno < 4) {
+        while(this.turno < 3) {
             
             if(this.turno%2===0){
                 j1.ficha.crearFicha(25,25,j1.ficha.color);
@@ -43,8 +43,10 @@ class Juego{
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
                 j1.insertarFicha(xReal,y,j1.ficha.color);
+                console.log(xReal);
+                console.log(y);
                 this.matriz[xReal][y]=1;
-
+                console.log(this.matriz);
                 //this.ganador = haGanado(matriz, xReal, y+25, this.j1, contador);
                 
                 this.turno++;
@@ -67,44 +69,40 @@ class Juego{
 }
 function columna(x){
     if(x>0 && x<=50){
-        x=25;
+        x=0;
     }
     if(x>50 && x<=100){
-        x=75;
+        x=1;
     }
     if(x>100 && x<=150){
-        x=125;
+        x=2;
     }
     if(x>150 && x<=200){
-        x=175;
+        x=3;
     }
     if(x>200 && x<=250){
-        x=225;
+        x=4;
     }
     if(x>250 && x<=300){
-        x=275;
+        x=5;
     }
     if(x>300 && x<=350){
-        x=325;
+        x=6;
     }
     if(x>350 && x<=400){
-        x=375;
+        x=7;
     }
     if(x>400 && x<450){
-        x=425;
+        x=8;
     }
     return x;
 }
 function buscarY(x,yMax,matriz){
-    let y=125;
-    while(y<=yMax && matriz[x][y]===0){
-        console.log(x);
-        console.log(y);
-        console.log(matriz[x][y]);
-        console.log(matriz[25][375] + " VALOR")
-        y+=50;
+    let y=0;
+    while(y<=yMax && matriz[x][y]==0){
+        y++;
     }
-    return y;
+    return y-1;
 }
 
 function haGanado(matriz, x, y, jugador, c){

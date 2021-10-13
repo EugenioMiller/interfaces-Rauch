@@ -4,6 +4,6 @@
 #ficha{
     display: none;
 }
-#timer{
+#tablero, #timer{
     text-align: center;
 }
