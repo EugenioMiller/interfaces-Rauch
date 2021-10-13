@@ -18,17 +18,21 @@ class Juego{
         let contador;
         let y=0;
         let xReal;
+        let xMax=0;
         let yMax=0;
        if(this.tablero.valor==4){
-            yMax=350;
+            xMax=350;
+            yMax=400;
             contador = 4;
        }
        else if (this.tablero.valor==5){
-           yMax=400;
+           xMax=400;
+           yMax=450;
            contador = 5;
        }
        else{
-           yMax=450;
+           xMax=450;
+           yMax=500;
            contador = 6;
        }
         while(this.turno < 4) {
@@ -107,12 +111,12 @@ function buscarY(x,yMax,matriz){
 
 function haGanado(matriz, x, y, jugador, c){
     let ganador = false;
-    if (horizontal(matriz, x, y, jugador, c) || vertical(matriz, x, y, jugador, c) || diagonal(matriz)){
+    if (horizontal(matriz, x, y, jugador, c) || vertical(matriz, x, y, jugador, c) 
+    || diagonalIaD(matriz,x,y,jugador,c,yMax)|| diagonalDaI(matriz,x,y,jugador,c,yMax) ){
         ganador = true;
     }
     return ganador;
 }
-
 function horizontal(matriz, x, y, jugador, c){
     let xInic = 25;
     let contador = 0;
@@ -143,7 +147,113 @@ function horizontal(matriz, x, y, jugador, c){
     }
     return ganador;
 }
+//las x son las comlumnas e y las filas.Buscamos de forma diagonal de dos formas(de izquierda a der 
+// && de derecha a izq)
+function diagonalIaD(matriz, x, y, jugador, c,yMax){
+ let filaIncial=buscarFilaInicio(x,y);
+ let colIncial=buscarColInicio(x,y);
+  return recorridoADer(matriz,colIncial,filaIncial,jugador,c,yMax);
 
+}
+function recorridoADer( matriz,  colInicial,  filaInicial,jugador ,c,xMax,yMax) {
+let contador=0;
+let ganador = false;
+//fila
+while (colInicial>xMax && filaInicial<yMax && contador<c){
+    if(jugador.nombre === "j1"){
+        if (matriz[colInicial][filaInicial]==1){
+            contador++;
+        }
+        else {
+            contador=0;
+        }
+    }
+    else if (jugador.nombre === "j2"){
+        if(matriz[colInicial][filaInicial] === 2){
+            contador++;
+            
+        }
+        else {
+           contador=0;
+        }
+    }
+    filaInicial=filaInicial+50;
+    colInicial=colInicial+50;
+    if(contador === c){
+        ganador = true;
+    }
+}
+return ganador;
+}
+function  buscarFilaInicio(x, y) {
+    let colInicial= x;
+    let filaInicial= y;
+    while (colInicial>25 && filaInicial>125){
+        colInicial=colInicial-50;
+        filaInicial=filaInicial-50;
+    }
+    return filaInicial;
+}
+function buscarColInicio( x, y) {
+    let colInicial=x;
+     let filaInicial= y;
+    while (colInicial>25&& filaInicial>125){
+        colInicial=colInicial-50;
+        filaInicial=filaInicial-50;
+    }
+    return colInicial;
+}
+//creo la funcion para recorrer la diagonal de Derecha a Izq
+function diagonalDaI(matriz,x,y,jugador,c,xMax,yMax){
+    let colInicial=buscarColDerercha(x,y,xMax);
+    let filaIncial=buscarFilaDerecha(x,y,xMax);
+    return recorridoIzq(matriz,colInicial,filaIncial,jugador,c,xMax,yMax);
+ 
+}
+function buscarColDerercha(x,y,xMax){
+    while( x<xMax && y>0){
+        x=x+50;
+        y=y-50;
+    }
+    return x;
+}
+function buscarFilaDerecha(x,y,xMax){
+    while( x<xMax && y>0){
+        x=x+50;
+        y=y-50;
+    }
+    return y;
+}
+function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
+ let contador =0;
+ while( colInicial>25 && filaIncial<yMax && contador<c){
+    if(jugador.nombre === "j1"){
+        if (matriz[colInicial][filaInicial]==1){
+            contador++;
+        }
+        else {
+            contador=0;
+        }
+    }
+    else if (jugador.nombre === "j2"){
+        if(matriz[colInicial][filaInicial] === 2){
+            contador++;
+            
+        }
+        else {
+           contador=0;
+        }
+    }
+    filaInicial=filaInicial+50;
+    colInicial=colInicial-50;
+    if(contador === c){
+        ganador = true;
+    }
+    }
+  return ganador;
+ }
+
+///////Vertical
 function vertical(matriz, x, y, jugador, c){
     let yInic = 0;
     let contador = 0;
