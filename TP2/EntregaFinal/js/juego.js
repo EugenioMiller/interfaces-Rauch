@@ -42,9 +42,8 @@ class Juego{
                 x=j1.ficha.mover(j1);
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
-                console.log(y + " En IF")
-                j1.insertarFicha(xReal,y-50,j1.ficha.color);
-                this.matriz[xReal][y-50]=1;
+                j1.insertarFicha(xReal,y,j1.ficha.color);
+                this.matriz[xReal][y]=1;
 
                 //this.ganador = haGanado(matriz, xReal, y+25, this.j1, contador);
                 
@@ -55,7 +54,6 @@ class Juego{
                 x=j2.ficha.mover(j2);
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
-                console.log(y + " en el Else")
                 j2.insertarFicha(xReal,y,j2.ficha.color);
                 this.matriz[xReal][y]=2;
 
