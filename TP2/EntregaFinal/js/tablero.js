@@ -14,8 +14,8 @@ class Tablero{
             </canvas>`;
             let canvas = document.getElementById('canvas');
             let ctx =canvas.getContext('2d');
-            canvas.width=350;
-            canvas.height=400;
+            canvas.width=850;
+            canvas.height=600;
             this.matriz = dibujaEscenario(this.matriz, ctx, this.valor);
         }
         else if(this.valor==5){
@@ -63,12 +63,18 @@ function dibujaEscenario(matriz, ctx, valor){
         f = 8;
     }
     
-    for (let x = 0; x < c; x++){
+    
+    for (let x = 0; x < c; x++){ 
         matriz[x] = new Array();
         for (let y = 0; y < f; y++){
-            ctx.beginPath();
-            matriz [x][y] =ctx.arc(x, y, 22, 0, 2 * Math.PI); 
             matriz[x][y]= 0;
+        }
+    }
+
+    for(let ancho = 275; ancho < 50*c+275; ancho+=50){
+        for(let alto = 125; alto < 50*(f+2); alto+=50){
+            ctx.beginPath();
+            ctx.arc(ancho, alto, 22, 0, 2 * Math.PI); 
             ctx.stroke();
         }
     }
