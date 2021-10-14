@@ -52,7 +52,7 @@ class Ficha{
 function moverFicha(x, y, color){
     let canvas =document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
-    if (y > 0 && y < 70) { 
+    if (y > 0 && y < 75) {
         limpiarCanvas(canvas, ctx);        
         ctx.beginPath();
         ctx.arc(x,y,22,0,Math.PI*2); 

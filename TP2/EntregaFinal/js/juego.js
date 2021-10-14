@@ -35,9 +35,9 @@ class Juego{
            yMax=8;
            contador = 6;
        }
-        while(this.turno < 3) {
-            
+        while(this.turno < 10 ) {
             if(this.turno%2===0){
+                console.log(this.matriz);
                 j1.ficha.crearFicha(25,25,j1.ficha.color);
                 x=j1.ficha.mover(j1);
                 xReal=columna(x);
@@ -46,8 +46,8 @@ class Juego{
                 console.log(xReal);
                 console.log(y);
                 this.matriz[xReal][y]=1;
-                console.log(this.matriz);
-                //this.ganador = haGanado(matriz, xReal, y+25, this.j1, contador);
+                this.ganador = haGanado(this.matriz, xReal, yMax, this.j1, contador);
+                
                 
                 this.turno++;
             }
@@ -56,8 +56,8 @@ class Juego{
                 x=j2.ficha.mover(j2);
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
-                j2.insertarFicha(xReal,y,j2.ficha.color);
-                this.matriz[xReal][y]=2;
+                //j2.insertarFicha(xReal,y,j2.ficha.color);
+                //this.matriz[xReal][y]=2;
 
 
                 this.turno++;
@@ -107,40 +107,31 @@ function buscarY(x,yMax,matriz){
 
 function haGanado(matriz, x, y, jugador, c){
     let ganador = false;
-    if (horizontal(matriz, x, y, jugador, c) || vertical(matriz, x, y, jugador, c) 
-    || diagonalIaD(matriz,x,y,jugador,c,yMax)|| diagonalDaI(matriz,x,y,jugador,c,yMax) ){
+    if (vertical(matriz, x, y, jugador, c) || horizontal(matriz, x, y, jugador, c)){
+        // ||  diagonalIaD(matriz,x,y,jugador,c,yMax)|| diagonalDaI(matriz,x,y,jugador,c,yMax) 
         ganador = true;
     }
     return ganador;
 }
 function horizontal(matriz, x, y, jugador, c){
-    let xInic = 25;
+    let xInic = 0;
+    let xFin = 7;
+    let yE= 0;
     let contador = 0;
     let ganador = false;
-    while(xInic < x || contador === c){
-        if(jugador.nombre === "j1"){
-            if(matriz[xInic][y] === 1){
-                contador+=1;
-                xInic+=50;
-            }
-            else {
-                xInic+=50;
-            }
-        }
-        else if (jugador.nombre === "j2"){
-            if(matriz[xInic][y] === 2){
-                contador+=1;
-                xInic+=50;
-            }
-            else {
-                xInic+=50;
-            }
-        }
-        if(contador === c){
-            ganador = true;
-        }
+    while(xInic < xFin && contador != c){
 
+        if(matriz[xInic][yE] === 1){
+            contador+=1;
+        }
+        xInic+=1;
+    
     }
+
+    if (contador == c){
+        ganador = true;
+    }
+
     return ganador;
 }
 //las x son las comlumnas e y las filas.Buscamos de forma diagonal de dos formas(de izquierda a der 
@@ -251,32 +242,28 @@ function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
 
 ///////Vertical
 function vertical(matriz, x, y, jugador, c){
+    console.log("VERTICAL")
     let yInic = 0;
+    let yMax = 6;
     let contador = 0;
     let ganador = false;
-    while(yInic < y || contador === c){
-        if(jugador.nombre === "j1"){
-            if(matriz[x][yInic] === 1){
-                contador+=1;
-                yInic+=50;
-            }
-            else {
-                yInic+=50;
-            }
-        }
-        else if (jugador.nombre === "j2"){
-            if(matriz[x][yInic] === 2){
-                contador+=1;
-                yInic+=50;
-            }
-            else {
-                yInic+=50;
-            }
-        }
-        if(contador === c){
-            ganador = true;
+    while(contador != c && yInic < yMax ){
+        console.log("EntroWhile")
+
+        if(matriz[x][yInic] === 1){
+            console.log(matriz[x][yInic] + " CADHGKJH")
+            contador+=1;
+            console.log(contador + " contador");
         }
 
+        yInic++;
+
+
+    }
+
+    
+    if(contador == c){
+        ganador = true;
     }
     return ganador;
 }
