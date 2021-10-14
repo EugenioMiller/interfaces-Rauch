@@ -35,10 +35,10 @@ class Juego{
            yMax=8;
            contador = 6;
        }
-        while(this.turno < 10 ) {
+        while(this.turno < 1) {
+            
             if(this.turno%2===0){
-                console.log(this.matriz);
-                j1.ficha.crearFicha(25,25,j1.ficha.color);
+                j1.crearFichas(25,25,j1.ficha.color);
                 x=j1.ficha.mover(j1);
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
@@ -52,7 +52,7 @@ class Juego{
                 this.turno++;
             }
             else {
-                j2.ficha.crearFicha(375,25, j2.ficha.color);
+                j2.crearFichas(700,25, j2.ficha.color);
                 x=j2.ficha.mover(j2);
                 xReal=columna(x);
                 y=buscarY(xReal,yMax,this.matriz);
