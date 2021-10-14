@@ -29,6 +29,8 @@ function seleccionarModoJuego(valor){
     document.getElementById("ficha").style.display='block';
     juego.setTablero(tablero);
     juego.setMatriz(tablero.matriz);
+    j1.addFicha(valor);
+    j2.addFicha(valor);
 }
 
 
