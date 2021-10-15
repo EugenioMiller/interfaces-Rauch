@@ -164,8 +164,8 @@ while (colInicial>xMax && filaInicial<yMax && contador<c){
            contador=0;
         }
     }
-    filaInicial=filaInicial+50;
-    colInicial=colInicial+50;
+    filaInicial=filaInicial++;
+    colInicial=colInicial++;
     if(contador === c){
         ganador = true;
     }
@@ -175,18 +175,18 @@ return ganador;
 function  buscarFilaInicio(x, y) {
     let colInicial= x;
     let filaInicial= y;
-    while (colInicial>25 && filaInicial>125){
-        colInicial=colInicial-50;
-        filaInicial=filaInicial-50;
+    while (colInicial>0 && filaInicial>0){
+        colInicial=colInicial--;
+        filaInicial=filaInicial--;
     }
     return filaInicial;
 }
 function buscarColInicio( x, y) {
     let colInicial=x;
      let filaInicial= y;
-    while (colInicial>25&& filaInicial>125){
-        colInicial=colInicial-50;
-        filaInicial=filaInicial-50;
+    while (colInicial>0&& filaInicial>0){
+        colInicial=colInicial--;
+        filaInicial=filaInicial--;
     }
     return colInicial;
 }
@@ -199,21 +199,21 @@ function diagonalDaI(matriz,x,y,jugador,c,xMax,yMax){
 }
 function buscarColDerercha(x,y,xMax){
     while( x<xMax && y>0){
-        x=x+50;
-        y=y-50;
+        x=x++;
+        y=y--;
     }
     return x;
 }
 function buscarFilaDerecha(x,y,xMax){
     while( x<xMax && y>0){
-        x=x+50;
-        y=y-50;
+        x=x++;
+        y=y--;
     }
     return y;
 }
 function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
  let contador =0;
- while( colInicial>25 && filaIncial<yMax && contador<c){
+ while( colInicial>0 && filaIncial<yMax && contador<c){
     if(jugador.nombre === "j1"){
         if (matriz[colInicial][filaInicial]==1){
             contador++;
@@ -231,8 +231,8 @@ function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
            contador=0;
         }
     }
-    filaInicial=filaInicial+50;
-    colInicial=colInicial-50;
+    filaInicial=filaInicial++;
+    colInicial=colInicial--;
     if(contador === c){
         ganador = true;
     }
@@ -240,22 +240,16 @@ function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
   return ganador;
  }
 
-///////Vertical
+///////Vertical 
 function vertical(matriz, x, y, jugador, c){
-    console.log("VERTICAL")
     let yInic = 0;
     let yMax = 6;
     let contador = 0;
     let ganador = false;
     while(contador != c && yInic < yMax ){
-        console.log("EntroWhile")
-
         if(matriz[x][yInic] === 1){
-            console.log(matriz[x][yInic] + " CADHGKJH")
             contador+=1;
-            console.log(contador + " contador");
         }
-
         yInic++;
 
 

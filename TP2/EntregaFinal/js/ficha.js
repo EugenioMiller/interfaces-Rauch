@@ -38,6 +38,13 @@ class Ficha{
 
     onMouseUp(e){
         isMouseDown = false;
+        let canvas =document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(e.layerX,e.layerY,this.radio,0,Math.PI*2); 
+        ctx.stroke();
+        ctx.fillStyle = "blue";
+        ctx.fill();
         return e.layerX;
        
     }
@@ -52,7 +59,7 @@ class Ficha{
 function moverFicha(x, y, color){
     let canvas =document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
-    if (y > 0 && y < 75) {
+    if (y > 0  && x>0 ) {
         limpiarCanvas(canvas, ctx);        
         ctx.beginPath();
         ctx.arc(x,y,22,0,Math.PI*2); 
