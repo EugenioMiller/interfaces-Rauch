@@ -2,7 +2,6 @@
 
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
-let fondo = document.getElementById("layer");
 let saltar = false;
 let muerto = false;
 
@@ -57,12 +56,29 @@ function finDeJuego(muerto){
     if (muerto){
         //Cambiar animación del personaje (die)
         //Mostrar en pantalla los puntos obtenidos
-        //Detener animaciones
+        detenerAnimaciones();
         //Agregar botón para volver a jugar
     }
     else {
+        detenerAnimaciones();
         //Mostrar cartel de que finalizó el tiempo
         //Mostrar puntaje obtenido
         //Mostrar botón para volver a jugar 
     }
+}
+
+function detenerAnimaciones(){
+    personaje.style.animationPlayState = "paused";
+    kunai.style.animationPlayState = "paused";
+    document.getElementById("fondo1").style.animationPlayState = "paused";
+    document.getElementById("fondo2").style.animationPlayState = "paused";
+    document.getElementById("fondo3").style.animationPlayState = "paused";
+    document.getElementById("fondo4").style.animationPlayState = "paused";
+    document.getElementById("fondo5").style.animationPlayState = "paused";
+    document.getElementById("fondo6").style.animationPlayState = "paused";
+    document.getElementById("fondo7").style.animationPlayState = "paused";
+    document.getElementById("fondo8").style.animationPlayState = "paused";
+    document.getElementById("fondo9").style.animationPlayState = "paused";
+    document.getElementById("fondo10").style.animationPlayState = "paused";
+    document.getElementById("fondo11").style.animationPlayState = "paused";
 }
