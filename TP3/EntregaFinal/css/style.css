@@ -1,0 +1,183 @@
+.layer{
+    min-height: 500px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: repeat-x;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url("../img/01.png");
+    animation: scroll 50s infinite linear;
+}
+
+.layer2 {
+    background-image: url("../img/02.png");
+    animation: scroll 40s infinite linear;
+}
+
+.layer3 {
+    background-image: url("../img/03.png");
+    animation: scroll 35s infinite linear;
+}
+
+.layer4 {
+    background-image: url("../img/04.png");
+    animation: scroll 30s infinite linear;
+}
+
+.layer5 {
+    background-image: url("../img/05.png");
+    animation: scroll 28s infinite linear;
+}
+
+.layer6 {
+    background-image: url("../img/06.png");
+    animation: scroll 24s infinite linear;
+}
+
+.layer7 {
+    background-image: url("../img/07.png");
+    animation: scroll 20s infinite linear;
+}
+
+.layer8 {
+    background-image: url("../img/08.png");
+    animation: scroll 18s infinite linear;
+}
+
+.layer9 {
+    background-image: url("../img/09.png");
+    animation: scroll 14s infinite linear;
+}
+
+.layer10 {
+    background-image: url("../img/10.png");
+    animation: scroll 10s infinite linear;
+}
+
+.layer11 {
+    background-image: url("../img/11.png");
+    animation: scroll 5s infinite linear;
+}
+
+@keyframes scroll {
+    0% { background-position: 0px; }
+    100% { background-position: -2048px; }
+}
+
+#personaje {
+    width: 150px;
+    height: 207px;
+    bottom: 130px;
+    position: absolute;
+}
+
+.kunai{
+    width: 160px;
+    height: 32px;
+    bottom: 180px;
+    right: 100px;
+    position: absolute;
+    background: url(../img/personaje/Kunai.png);
+    animation: hit 6s linear infinite;
+}
+
+.run{
+    animation: run .8s steps(10) infinite;
+}
+
+.jump{
+    animation: jump .8s steps(10) forwards;
+}
+
+@keyframes run {
+    0% {
+        background: url(../img/personaje/Run__000.png) left center;
+    }
+    10%{
+        background: url(../img/personaje/Run__001.png) left center;
+    }
+    20%{
+        background: url(../img/personaje/Run__002.png) left center;
+    }
+    30%{
+        background: url(../img/personaje/Run__003.png) left center;
+    }
+    40%{
+        background: url(../img/personaje/Run__004.png) left center;
+    }
+    50%{
+        background: url(../img/personaje/Run__005.png) left center;
+    }
+    60%{
+        background: url(../img/personaje/Run__006.png) left center;
+    }
+    70%{
+        background: url(../img/personaje/Run__007.png) left center;
+    }
+    80%{
+        background: url(../img/personaje/Run__008.png) left center;
+    }
+    90%{
+        background: url(../img/personaje/Run__009.png) left center;
+    }
+    100%{
+        background: url(../img/personaje/Run__000.png) left center;
+    }
+
+}
+
+@keyframes jump {
+    0% {
+        background: url(../img/personaje/Jump__000.png) left center;
+    }
+    10%{
+        background: url(../img/personaje/Jump__001.png) left center;
+    }
+    20%{
+        background: url(../img/personaje/Jump__002.png) left center;
+    }
+    30%{
+        background: url(../img/personaje/Jump__003.png) left center;
+    }
+    40%{
+        background: url(../img/personaje/Jump__004.png) left center;
+    }
+    50%{
+        background: url(../img/personaje/Jump__005.png) left center;
+        transform: translate(0px, -200px);
+    }
+    60%{
+        background: url(../img/personaje/Jump__006.png) left center;
+    }
+    70%{
+        background: url(../img/personaje/Jump__007.png) left center;
+    }
+    80%{
+        background: url(../img/personaje/Jump__008.png) left center;
+    }
+    90%{
+        background: url(../img/personaje/Jump__009.png) left center;
+    }
+    100%{
+        background: url(../img/personaje/Jump__000.png) left center;
+        transform: translate(0px, 0px);
+    }
+
+}
+
+@keyframes hit {
+    0%{
+        right: 0%
+    }
+    50%{
+        right: 100%;
+    }
+    100%{
+        right: 100%;
+    }
+}
