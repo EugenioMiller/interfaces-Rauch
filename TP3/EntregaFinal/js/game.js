@@ -53,17 +53,18 @@ function detectarColision(){
             personajeHeight>=kunaiPos.top && 
             personajePos.top <= kunaiHeight  ){ 
                 muerto = true;
-                finDeJuego(muerto); 
-                detenerAnimaciones();    
+                finDeJuego(muerto);    
         }
     }
 }
 
 function finDeJuego(muerto){
     if (muerto){
-        personaje.setAttribute("class","died");
         //Cambiar animación del personaje (die)
-
+        personaje.setAttribute("class","died");
+        personaje.addEventListener("animationend", ()=>{
+            detenerAnimaciones();
+        });
         //Mostrar en pantalla los puntos obtenidos
         //detenerAnimaciones();
         //Agregar botón para volver a jugar
@@ -78,6 +79,7 @@ function finDeJuego(muerto){
 
 function detenerAnimaciones(){
     
+    personaje.setAttribute("class","died");
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";
