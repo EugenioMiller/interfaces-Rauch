@@ -4,12 +4,10 @@ let btn=document.getElementById("jugar");
 let reglas= document.getElementById("mostrar");
 let btnReglas=document.getElementById("reglas");
 let shuriken = document.getElementById("shuriken");
-<<<<<<< HEAD
 let piedra=document.getElementById("piedra");
-=======
 let puntaje = 0;
 let puntos = document.getElementById("puntos");
->>>>>>> 0a85a2d0b40a2f49199e2f32a3217946b5b5dcc3
+
 btnReglas.addEventListener('click', function(){
   reglas.style.display='block';
 })
@@ -56,16 +54,13 @@ function detectarColision(){
         let personajePos = personaje.getBoundingClientRect();       
         let kunaiPos =  kunai.getBoundingClientRect();
         let shurikenPos = shuriken.getBoundingClientRect();
+        let piedraPos=piedra.getBoundingClientRect();
         let personajeWidht = personajePos.left + personajePos.width;
         let personajeHeight = personajePos.top + personajePos.height;
         let kunaiWidht = kunaiPos.left + kunaiPos.width;
         let kunaiHeight = kunaiPos.top + kunaiPos.height; 
-        let piedraPos=piedra.getBoundingClientRect();
         let piedraWidht = piedraPos.left + piedraPos.width;
         let piedraHeight = piedraPos.top + piedraPos.height;
-
-
-        let kunaiHeight = kunaiPos.top + kunaiPos.height;
         let shurikenWidht = shurikenPos.left + shurikenPos.width;
         let shurikenHeight = shurikenPos.top + shurikenPos.height;  
 
@@ -87,7 +82,7 @@ function detectarColision(){
                 muerto = true;
                 finDeJuego(muerto);  
 
-
+            }
         //Pregunto si la ninja colisiona con el shuriken
         if( personajePos.left<=shurikenWidht && 
             personajeWidht>=shurikenPos.left && 
@@ -97,7 +92,7 @@ function detectarColision(){
                 acutualizarPuntuacion(); 
 
         }
-    }
+    
 }
 
 function finDeJuego(muerto){
