@@ -3,6 +3,7 @@ let inicio=document.getElementById("inicio");
 let btn=document.getElementById("jugar");
 let reglas= document.getElementById("mostrar");
 let btnReglas=document.getElementById("reglas");
+let shuriken = document.getElementById("shuriken");
 btnReglas.addEventListener('click', function(){
   reglas.style.display='block';
 })
@@ -17,7 +18,7 @@ let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
 document.addEventListener('keydown', function(event){
-    if(event.keyCode === 32){
+    if(event.keyCode === 32 && !muerto){
         saltar = true;
         jump(saltar);
     }
@@ -58,8 +59,7 @@ function detectarColision(){
             personajeHeight>=kunaiPos.top && 
             personajePos.top <= kunaiHeight  ){ 
                 muerto = true;
-                finDeJuego(muerto); 
-                detenerAnimaciones();    
+                finDeJuego(muerto);  
         }
     }
 }
@@ -85,8 +85,10 @@ function finDeJuego(muerto){
 }
 
 function detenerAnimaciones(){
+    personaje.setAttribute("class","died");
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
+    shuriken.style.animationPlayState = "paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";
     document.getElementById("fondo2").style.animationPlayState = "paused";
     document.getElementById("fondo3").style.animationPlayState = "paused";
