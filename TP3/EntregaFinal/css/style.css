@@ -91,6 +91,14 @@ h1{
     bottom: 130px;
     position: absolute;
 }
+.puntuacion{
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    right: 100px;
+    position: absolute;
+}
+
 
 .kunai{
     width: 160px;
