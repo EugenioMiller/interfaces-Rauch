@@ -85,7 +85,6 @@ function finDeJuego(muerto){
 }
 
 function detenerAnimaciones(){
-    
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";

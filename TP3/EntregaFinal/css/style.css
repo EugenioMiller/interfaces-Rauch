@@ -102,6 +102,15 @@ h1{
     animation: hit 6s linear infinite;
 }
 
+.shuriken{
+    width: 100px;
+    height: 100px;
+    bottom: 350px;
+    right: 100px;
+    position: absolute;
+    animation: moveShuriken 8s linear infinite;
+}
+
 .run{
     animation: run .8s steps(10) infinite;
 }
@@ -112,6 +121,8 @@ h1{
 .died{
     animation: died .8s steps(10) forwards ;
 }
+
+
 @keyframes run {
     0% {
         background: url(../img/personaje/Run__000.png) left center;
@@ -231,5 +242,29 @@ h1{
     }
     100%{
         right: 100%;
+    }
+}
+
+@keyframes moveShuriken {
+    0%{
+        background: url(../img/shuriken/Shuriken\ pronta.png) left center;
+        right: 0%
+    }
+    20%{
+        background: url(../img/shuriken/Shuriken\ pronta\ 2.png) left center;
+    }
+    40%{
+        background: url(../img/shuriken/Shuriken\ pronta.png) left center;
+    }
+    60%{
+        background: url(../img/shuriken/Shuriken\ pronta\ 2.png) left center;
+    }
+    80%{
+        background: url(../img/shuriken/Shuriken\ pronta.png) left center;
+        right: 100%;;
+    }
+    100%{
+        background: url(../img/shuriken/Shuriken\ pronta\ 2.png) left center;
+        right: 100%
     }
 }
