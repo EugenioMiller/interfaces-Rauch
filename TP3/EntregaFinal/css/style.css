@@ -110,9 +110,9 @@ h1{
     animation: hit 6s linear infinite;
 }
 .piedra{
-    width: 150px;
-    height:150px;
-    bottom: 30px;
+    width: 170px;
+    height:170px;
+    bottom: 0px;
     right: 100px;
     position: absolute;
     animation: movePiedra 8s linear infinite;
@@ -261,21 +261,21 @@ h1{
 }
 @keyframes movePiedra {
     0%{
-        background: url(../img/personaje/piedra2.jpeg)left center ;
+        background: url(../img/personaje/piedra.png)left center ;
         right: 0%
     }
     25%{
-        background: url(../img/personaje/piedra2.jpeg)left center ;
+        background: url(../img/personaje/piedra.png)left center ;
     }
     50%{
-        background: url(../img/personaje/piedra2.jpeg)left center ;
+        background: url(../img/personaje/piedra.png)left center ;
     }
     75%{
-        background: url(../img/personaje/piedra2.jpeg)left center ;
+        background: url(../img/personaje/piedra.png)left center ;
         right: 100%
     }
     100%{
-        background: url(../img/personaje/piedra2.jpeg)left center ;
+        background: url(../img/personaje/piedra.png)left center ;
         right: 100%
     }
 }
