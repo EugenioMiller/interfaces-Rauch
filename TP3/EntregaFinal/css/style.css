@@ -164,8 +164,8 @@ h1{
     animation: hit 4s linear infinite;
 }
 .piedra{
-    width: 250px;
-    height:250px;
+    width: 100px;
+    height:100px;
     bottom: 0px;
     right: 100px;
     position: absolute;
