@@ -1,4 +1,6 @@
 'use strict';
+
+//Inicializamos variables.
 let inicio=document.getElementById("inicio");
 let btn=document.getElementById("jugar");
 let reglas= document.getElementById("mostrar");
@@ -7,21 +9,27 @@ let shuriken = document.getElementById("shuriken");
 let piedra=document.getElementById("piedra");
 let puntaje = 0;
 let puntos = document.getElementById("puntos");
+let final = document.getElementById("fin");
 
+//Agregamos evento al botón de reglas
 btnReglas.addEventListener('click', function(){
   reglas.style.display='block';
 })
+
+//Agregamos evento de inicio de juuego al botón iniciar
 let contenedor =document.getElementById("contenedor");
 btn.addEventListener('click',iniciar);
 function iniciar(){
    inicio.style.display = 'none';
    contenedor.style.display='block';
+
+//Inicializamos nuevas variables 
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
-//let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
 puntos.innerHTML = `Puntuación : ${puntaje}`;
+//Agregamos funcionalidad a la tecla espacio
 document.addEventListener('keydown', function(event){
     if(event.keyCode === 32 && !muerto){
         saltar = true;
@@ -44,13 +52,13 @@ personaje.addEventListener("animationend", ()=>{
     jump(saltar);
 });
 
-//-----------------------------------------------------------------
-
+//Detectamos si existe colisiones
 setInterval(detectarColision,500); 
-//Detecta colisiones del personaje 
+//Función que detecta colisiones del personaje 
 function detectarColision(){ 
     if (muerto == false){
                 
+        //Inicialización de variables necesarias
         let personajePos = personaje.getBoundingClientRect();       
         let kunaiPos =  kunai.getBoundingClientRect();
         let shurikenPos = shuriken.getBoundingClientRect();
@@ -95,6 +103,7 @@ function detectarColision(){
     
 }
 
+//Función que finaliza el juego
 function finDeJuego(muerto){
     if (muerto){
         //Cambiar animación del personaje (die)
@@ -102,18 +111,14 @@ function finDeJuego(muerto){
         personaje.addEventListener("animationend",()=>{
             detenerAnimaciones();
         });
-
-        //Mostrar en pantalla los puntos obtenidos
-        //Agregar botón para volver a jugar
+        
     }
     else {
         detenerAnimaciones();
-        //Mostrar cartel de que finalizó el tiempo
-        //Mostrar puntaje obtenido
-        //Mostrar botón para volver a jugar 
     }
 }
 
+//Función que detiene las animaciones, una vez que el juego ha terminado
 function detenerAnimaciones(){
     personaje.setAttribute("class","died");
     personaje.style.animationPlayState = "paused";
@@ -131,12 +136,14 @@ function detenerAnimaciones(){
     document.getElementById("fondo9").style.animationPlayState = "paused";
     document.getElementById("fondo10").style.animationPlayState = "paused";
     document.getElementById("fondo11").style.animationPlayState = "paused";
-    
-    
+    alert("Ha muerto, su puntuación final es de: " + puntaje + "\nReiniciar juego");
+    location.reload();
 }
 }
 
+//Función que actualiza la puntuación del jugador
 function acutualizarPuntuacion(){
     puntos.innerHTML = `Puntuación : ${puntaje}`;
 }
 }
+

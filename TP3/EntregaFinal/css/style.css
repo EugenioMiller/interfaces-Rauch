@@ -3,9 +3,9 @@
     
 }
 #inicio{
- background-color:black;
-  visibility: visible;
-  text-align: center;
+    background-color:black;
+    visibility: visible;
+    text-align: center;
 }
 
 #jugar, #reglas{
@@ -26,6 +26,13 @@
         letter-spacing: 0.06em;
         text-transform: uppercase;
 }
+
+.objetivo{
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 #jugar:hover, #jugar:focus, #reglas:hover, #reglas:focus {
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
       0 4px 5px 0 rgba(0, 0, 0, 0.14),
@@ -114,6 +121,9 @@ h1{
     animation: scroll 5s infinite linear;
 }
 
+/*
+    Función que scrollea los layers hacia izquierda
+*/
 @keyframes scroll {
     0% { background-position: 0px; }
     100% { background-position: -2048px; }
@@ -141,7 +151,7 @@ h1{
     right: 100px;
     position: absolute;
     background: url(../img/personaje/Kunai.png);
-    animation: hit 6s linear infinite;
+    animation: hit 4s linear infinite;
 }
 .piedra{
     width: 250px;
@@ -149,7 +159,7 @@ h1{
     bottom: 0px;
     right: 100px;
     position: absolute;
-    animation: movePiedra 8s linear infinite;
+    animation: movePiedra 5s linear infinite;
 }
 .shuriken{
     width: 100px;
@@ -171,7 +181,9 @@ h1{
     animation: died .8s steps(10) forwards ;
 }
 
-
+/*
+    Función que genera la animación del personaje corriendo
+*/
 @keyframes run {
     0% {
         background: url(../img/personaje/Run__000.png) left center;
@@ -208,6 +220,10 @@ h1{
     }
 
 }
+
+/*
+    Función que genera la animación de muerte del personaje
+*/
 @keyframes died {
     0%{
         background: url(../img/personaje/Dead__000.png)left center;
@@ -243,6 +259,10 @@ h1{
         background: url(../img/personaje/Dead__009.png)left center;
     }
 }
+
+/*
+    Función que genera la animación de salto del personaje
+*/
 @keyframes jump {
     0% {
         background: url(../img/personaje/Jump__000.png) left center;
@@ -282,6 +302,9 @@ h1{
 
 }
 
+/*
+    Función que genera la animación de el kunai en movimiento
+*/
 @keyframes hit {
     0%{
         right: 0%
@@ -293,6 +316,10 @@ h1{
         right: 100%;
     }
 }
+
+/*
+    Función que genera el movimiento a izquierda de la piedra
+*/
 @keyframes movePiedra {
     0%{
         background: url(../img/personaje/piedra.png)left center ;
@@ -313,6 +340,11 @@ h1{
         right: 100%
     }
 }
+
+/*
+    Función que genera la animación del shuriken,
+    y su movimiento hacia izquierda
+*/
 @keyframes moveShuriken {
     0%{
         background: url(../img/shuriken/Shuriken\ pronta.png) left center;
