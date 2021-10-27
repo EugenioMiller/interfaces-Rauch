@@ -5,6 +5,9 @@
  background-color: blue;
   visibility: visible;
 }
+p{
+    display:  none;
+}
 h1{
     text-align: center;
     justify-content: center;

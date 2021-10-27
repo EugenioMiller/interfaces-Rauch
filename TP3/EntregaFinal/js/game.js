@@ -1,11 +1,16 @@
 'use strict';
 let inicio=document.getElementById("inicio");
 let btn=document.getElementById("jugar");
+let reglas= document.getElementById("mostrar");
+let btnReglas=document.getElementById("reglas");
+btnReglas.addEventListener('click', function(){
+  reglas.style.display='block';
+})
 let contenedor =document.getElementById("contenedor");
 btn.addEventListener('click',iniciar);
 function iniciar(){
    inicio.style.display = 'none';
-contenedor.style.display='block';
+   contenedor.style.display='block';
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
 let died=document.getElementById("died");
@@ -62,6 +67,9 @@ function detectarColision(){
 function finDeJuego(muerto){
     if (muerto){
         personaje.setAttribute("class","died");
+        personaje.addEventListener("animationend",()=>{
+            detenerAnimaciones();
+        });
         //Cambiar animación del personaje (die)
 
         //Mostrar en pantalla los puntos obtenidos
