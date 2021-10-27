@@ -1,10 +1,16 @@
 'use strict';
-
+let inicio=document.getElementById("inicio");
+let btn=document.getElementById("jugar");
+let contenedor =document.getElementById("contenedor");
+btn.addEventListener('click',iniciar);
+function iniciar(){
+   inicio.style.display = 'none';
+contenedor.style.display='block';
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
+let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
-
 document.addEventListener('keydown', function(event){
     if(event.keyCode === 32){
         saltar = true;
@@ -47,16 +53,19 @@ function detectarColision(){
             personajeHeight>=kunaiPos.top && 
             personajePos.top <= kunaiHeight  ){ 
                 muerto = true;
-                finDeJuego(muerto);     
+                finDeJuego(muerto); 
+                detenerAnimaciones();    
         }
     }
 }
 
 function finDeJuego(muerto){
     if (muerto){
+        personaje.setAttribute("class","died");
         //Cambiar animación del personaje (die)
+
         //Mostrar en pantalla los puntos obtenidos
-        detenerAnimaciones();
+        //detenerAnimaciones();
         //Agregar botón para volver a jugar
     }
     else {
@@ -68,6 +77,7 @@ function finDeJuego(muerto){
 }
 
 function detenerAnimaciones(){
+    
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";
@@ -81,4 +91,7 @@ function detenerAnimaciones(){
     document.getElementById("fondo9").style.animationPlayState = "paused";
     document.getElementById("fondo10").style.animationPlayState = "paused";
     document.getElementById("fondo11").style.animationPlayState = "paused";
+    
+    
+}
 }

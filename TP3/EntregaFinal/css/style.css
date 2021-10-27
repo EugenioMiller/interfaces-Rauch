@@ -1,3 +1,16 @@
+#contenedor{
+    display: none;
+}
+#inicio{
+ background-color: blue;
+  visibility: visible;
+}
+h1{
+    text-align: center;
+    justify-content: center;
+    font-style: italic; 
+    color: brown;
+}
 .layer{
     min-height: 500px;
     width: 100%;
@@ -93,7 +106,9 @@
 .jump{
     animation: jump .8s steps(10) forwards;
 }
-
+.died{
+    animation: died .8s steps(10) forwards ;
+}
 @keyframes run {
     0% {
         background: url(../img/personaje/Run__000.png) left center;
@@ -130,7 +145,41 @@
     }
 
 }
-
+@keyframes died {
+    0%{
+        background: url(../img/personaje/Dead__000.png)left center;
+    }
+    10%{
+        background: url(../img/personaje/Dead__001.png)left center;
+    }
+    20%{
+        background: url(../img/personaje/Dead__002.png)left center;
+    }
+    30%{
+        background: url(../img/personaje/Dead__003.png)left center;
+    }
+    40%{
+        background: url(../img/personaje/Dead__004.png)left center;
+    }
+    50%{
+        background: url(../img/personaje/Dead__005.png)left center;
+    }
+    60%{
+        background: url(../img/personaje/Dead__006.png)left center;
+    }
+    70%{
+        background: url(../img/personaje/Dead__007.png)left center;
+    }
+    80%{
+        background: url(../img/personaje/Dead__008.png)left center;
+    }
+    90%{
+        background: url(../img/personaje/Dead__009.png)left center;
+    }
+    100%{
+        background: url(../img/personaje/Dead__009.png)left center;
+    }
+}
 @keyframes jump {
     0% {
         background: url(../img/personaje/Jump__000.png) left center;
