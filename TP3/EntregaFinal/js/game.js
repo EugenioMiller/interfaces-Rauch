@@ -4,6 +4,7 @@ let btn=document.getElementById("jugar");
 let reglas= document.getElementById("mostrar");
 let btnReglas=document.getElementById("reglas");
 let shuriken = document.getElementById("shuriken");
+let piedra=document.getElementById("piedra");
 btnReglas.addEventListener('click', function(){
   reglas.style.display='block';
 })
@@ -14,7 +15,7 @@ function iniciar(){
    contenedor.style.display='block';
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
-let died=document.getElementById("died");
+//let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
 document.addEventListener('keydown', function(event){
@@ -52,12 +53,24 @@ function detectarColision(){
         let personajeHeight = personajePos.top + personajePos.height;
         let kunaiWidht = kunaiPos.left + kunaiPos.width;
         let kunaiHeight = kunaiPos.top + kunaiPos.height; 
+        let piedraPos=piedra.getBoundingClientRect();
+        let piedraWidht = piedraPos.left + piedraPos.width;
+        let piedraHeight = kunaiPos.top + piedraPos.height;
+
 
         //Pregunto si la ninja colisiona con el kunai
         if( personajePos.left<=kunaiWidht && 
             personajeWidht>=kunaiPos.left && 
             personajeHeight>=kunaiPos.top && 
             personajePos.top <= kunaiHeight  ){ 
+                muerto = true;
+                finDeJuego(muerto);  
+        }
+        //Pregunto si la ninja colisiona con la piedra
+        if( personajePos.left<=piedraWidht && 
+            personajeWidht>=piedraPos.left && 
+            personajeHeight>=piedraPos.top && 
+            personajePos.top <= piedraHeight  ){ 
                 muerto = true;
                 finDeJuego(muerto);  
         }
@@ -89,6 +102,7 @@ function detenerAnimaciones(){
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
     shuriken.style.animationPlayState = "paused";
+    piedra.style.animationPlayState="paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";
     document.getElementById("fondo2").style.animationPlayState = "paused";
     document.getElementById("fondo3").style.animationPlayState = "paused";
