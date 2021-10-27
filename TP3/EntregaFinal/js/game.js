@@ -2,6 +2,7 @@
 let inicio=document.getElementById("inicio");
 let btn=document.getElementById("jugar");
 let contenedor =document.getElementById("contenedor");
+let shuriken = document.getElementById("shuriken");
 btn.addEventListener('click',iniciar);
 function iniciar(){
    inicio.style.display = 'none';
@@ -12,7 +13,7 @@ let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
 document.addEventListener('keydown', function(event){
-    if(event.keyCode === 32){
+    if(event.keyCode === 32 && !muerto){
         saltar = true;
         jump(saltar);
     }
@@ -82,6 +83,7 @@ function detenerAnimaciones(){
     personaje.setAttribute("class","died");
     personaje.style.animationPlayState = "paused";
     kunai.style.animationPlayState = "paused";
+    shuriken.style.animationPlayState = "paused";
     document.getElementById("fondo1").style.animationPlayState = "paused";
     document.getElementById("fondo2").style.animationPlayState = "paused";
     document.getElementById("fondo3").style.animationPlayState = "paused";
