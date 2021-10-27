@@ -166,7 +166,7 @@ h1{
 .piedra{
     width: 100px;
     height:100px;
-    bottom: 0px;
+    bottom: 100px;
     right: 100px;
     position: absolute;
     animation: movePiedra 5s linear infinite;
