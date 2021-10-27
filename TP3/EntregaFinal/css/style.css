@@ -7,7 +7,17 @@
   visibility: visible;
   text-align: center;
 }
-
+.puntuacion{
+    font-style: normal; 
+    font-size: 20px;
+    color:white;
+    justify-content: center;
+}
+#puntos{
+    height: 25px;
+    background-color: red;
+    border-bottom: solid 3px;
+}
 #jugar, #reglas{
         padding: 0 16px;
         border-radius: 5px;

@@ -18,7 +18,6 @@ function iniciar(){
    contenedor.style.display='block';
 let personaje = document.getElementById("personaje");
 let kunai = document.getElementById("kunai");
-//let died=document.getElementById("died");
 let saltar = false;
 let muerto = false;
 puntos.innerHTML = `Puntuación : ${puntaje}`;
@@ -89,7 +88,7 @@ function detectarColision(){
             personajeHeight>=shurikenPos.top && 
             personajePos.top <= shurikenHeight  ){ 
                 puntaje+=1;
-                acutualizarPuntuacion(); 
+                acutualizarPuntuacion(puntaje); 
 
         }
     
@@ -99,6 +98,7 @@ function finDeJuego(muerto){
     if (muerto){
         //Cambiar animación del personaje (die)
         personaje.setAttribute("class","died");
+        //Detener la animacion
         personaje.addEventListener("animationend",()=>{
             detenerAnimaciones();
         });
@@ -131,12 +131,13 @@ function detenerAnimaciones(){
     document.getElementById("fondo9").style.animationPlayState = "paused";
     document.getElementById("fondo10").style.animationPlayState = "paused";
     document.getElementById("fondo11").style.animationPlayState = "paused";
+    alert(" el puntaje obtenido es.."+ puntaje);
     
     
 }
 }
 
-function acutualizarPuntuacion(){
+function acutualizarPuntuacion(puntaje){
     puntos.innerHTML = `Puntuación : ${puntaje}`;
 }
 }
