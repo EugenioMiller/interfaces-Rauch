@@ -97,7 +97,7 @@ function detectarColision(){
             personajeHeight>=shurikenPos.top && 
             personajePos.top <= shurikenHeight  ){ 
                 puntaje+=1;
-                acutualizarPuntuacion(); 
+                acutualizarPuntuacion(puntaje); 
 
         }
     
@@ -108,6 +108,7 @@ function finDeJuego(muerto){
     if (muerto){
         //Cambiar animación del personaje (die)
         personaje.setAttribute("class","died");
+        //Detener la animacion
         personaje.addEventListener("animationend",()=>{
             detenerAnimaciones();
         });
