@@ -1,263 +1,241 @@
-class Juego{
-    constructor(j1, j2){
-        this.j1 = j1;
-        this.j2 = j2;
-        this.tablero=null;
-        this.turno=0;
-        this.ganador=false;
-        this.matriz;
+let juego; //en esta variable se instancia el tablero
+let wh = []; //guardo el ancho y alto del canvas
+let x = []; //guardo el valor x final de cada columna
+let mouse = false;
+let turno;
+let cantFichas;
+let tiempo;
+
+let jugadorJ1 = {
+    ficha: null,
+    xv: 0,
+    yv: 0,
+    turnos: 0
+  };
+let jugadorJ2 = {
+    ficha: null,
+    xv: 0,
+    yv: 0,
+    turnos: 0
+};
+
+//Tiempo de juego 
+function finDeTiempo(){
+
+    document.getElementById('tiempoLimite').innerHTML = tiempo;
+  
+    if(tiempo == 0){
+      endGame();
+      
     }
-    setTablero(tablero){
-        this.tablero=tablero;
-    }
-    setMatriz(matriz){
-        this.matriz = matriz;
-    }
-    iniciarJuego(){
-        let x;
-        let contador;
-        let y=0;
-        let xReal;
-        let xMax=0;
-        let yMax=0;
-       if(this.tablero.valor==4){
-            xMax=7;
-            yMax=6;
-            contador = 4;
-       }
-       else if (this.tablero.valor==5){
-           xMax=8;
-           yMax=7;
-           contador = 5;
-       }
-       else{
-           xMax=9;
-           yMax=8;
-           contador = 6;
-       }
-        while(this.turno < 1) {
-            
-            if(this.turno%2===0){
-                j1.crearFichas(25,25,j1.ficha.color);
-                x=j1.ficha.mover(j1);
-                xReal=columna(x);
-                y=buscarY(xReal,yMax,this.matriz);
-                j1.insertarFicha(xReal,y,j1.ficha.color);
-                console.log(xReal);
-                console.log(y);
-                this.matriz[xReal][y]=1;
-                this.ganador = haGanado(this.matriz, xReal, yMax, this.j1, contador);
-                
-                
-                this.turno++;
-            }
-            else {
-                j2.crearFichas(700,25, j2.ficha.color);
-                x=j2.ficha.mover(j2);
-                xReal=columna(x);
-                y=buscarY(xReal,yMax,this.matriz);
-                //j2.insertarFicha(xReal,y,j2.ficha.color);
-                //this.matriz[xReal][y]=2;
-
-
-                this.turno++;
-            }
-
-        }
-
+    else{
+      tiempo = tiempo - 1;
+      setTime=setTimeout(finDeTiempo, 1000);
     }
 }
-function columna(x){
-    if(x>0 && x<=50){
-        x=0;
-    }
-    if(x>50 && x<=100){
-        x=1;
-    }
-    if(x>100 && x<=150){
-        x=2;
-    }
-    if(x>150 && x<=200){
-        x=3;
-    }
-    if(x>200 && x<=250){
-        x=4;
-    }
-    if(x>250 && x<=300){
-        x=5;
-    }
-    if(x>300 && x<=350){
-        x=6;
-    }
-    if(x>350 && x<=400){
-        x=7;
-    }
-    if(x>400 && x<450){
-        x=8;
-    }
-    return x;
-}
-function buscarY(x,yMax,matriz){
-    let y=0;
-    while(y<=yMax && matriz[x][y]==0){
-        y++;
-    }
-    return y-1;
+
+//Función que detiene el tiempo
+function detenerTiempo() {
+    clearTimeout(setTime);
 }
 
-function haGanado(matriz, x, y, jugador, c){
-    let ganador = false;
-    if (vertical(matriz, x, y, jugador, c) || horizontal(matriz, x, y, jugador, c)){
-        // ||  diagonalIaD(matriz,x,y,jugador,c,yMax)|| diagonalDaI(matriz,x,y,jugador,c,yMax) 
-        ganador = true;
-    }
-    return ganador;
-}
-function horizontal(matriz, x, y, jugador, c){
-    let xInic = 0;
-    let xFin = 7;
-    let yE= 0;
-    let contador = 0;
-    let ganador = false;
-    while(xInic < xFin && contador != c){
+let iniciar = document.getElementById("iniciar");
 
-        if(matriz[xInic][yE] === 1){
-            contador+=1;
-        }
-        xInic+=1;
+iniciar.addEventListener("click", function (e) {
+    asignarImagen();
+    iniciarJuego();
+    juego.limpiar();
+});
+
+let btnReinicioGanador=document.getElementById("reinicioGanador");
+btnReinicioGanador.addEventListener("click",function(e){
+    reiniciarJuego()});
+let btnReinicioTiempo=document.getElementById("reinicioTiempo");
+btnReinicioTiempo.addEventListener("click",function(e){
+    reiniciarJuego()});
+
+
+// Inicia el juego 
+function iniciarJuego() {
+    wh = levantarCanvas();
+    juego = new Tablero(wh[0], wh[1]); //instancia de la clase Tablero
+    jugadorJ2.ficha = juego.fichaJ2;
+    jugadorJ2.xv = juego.fichaJ2.xv;
+    jugadorJ2.yv = juego.fichaJ2.yv;
+    jugadorJ1.ficha = juego.fichaJ1;
+    jugadorJ1.xv = juego.fichaJ1.xv;
+    jugadorJ1.yv = juego.fichaJ1.yv;
+    turn = jugadorJ1.ficha;// seteo a j1 por defecto en el turno para q el inicie el juego
+    time=500;
+    seleccionTurno();
+    cantFichas= 20;
+    jugadorJ1.turnos=cantFichas/2;
+    jugadorJ2.turnos=cantFichas/2;
+    reloj.classList.remove("hidden");
+    finDeTiempo();
     
+    //una vez instanciado el tablero lo mapeamos para detectar las columnas
+    x[0] = juego.posTablero + juego.colW;
+    for (let i = 1; i < juego.cols; i++) {
+      x[i] = x[i - 1] + juego.colW;
+    }
+}
+
+// Detectar que el click se de dentro de la ficha del jugador
+canvas.onmousedown = function (e) {
+    let rect = canvas.getBoundingClientRect();
+    let xClick = e.clientX - rect.left; //posición x dentro del elemento.
+    let yClick = e.clientY - rect.top; //posición y dentro del elemento.
+    if (
+      turno.xv < xClick &&
+      turno.xv + turno.rowH > xClick &&
+      turno.yv < yClick &&
+      turno.yv + turno.rowH > yClick
+    ) {  
+      mouse = true;
+    }
+};
+
+// Metodo que se dispara al mover la ficha 
+canvas.onmousemove = function (e) {
+    let rect = canvas.getBoundingClientRect();
+    let x2 = e.clientX - rect.left;
+    let y2 = e.clientY - rect.top;
+    if (mouse === true) {
+      turno.xv = x2 - turno.rowH / 2; //agarrar la ficha desde el centro
+      turno.yv = y2 - turno.rowH / 2;
+      juego.limpiar(); //limpia el tablero y lo vuelve a dibujar para no dibujar un "camino" fichas
+    }
+};
+
+// Se dispara cuando se suelta la ficha, si la ficha no esta dentro del tablero vuelve a su posicion
+// Si la columna esta llena, se pide que elija otra
+// Si hay ganador llama a la funcion que muestra al ganador, sino cambia de turno
+
+canvas.onmouseup = function (e) {
+    let xClick = e.offsetX;
+    let resultInsert, colInsert;
+  
+    if (
+      mouse === true &&
+      xClick > juego.posTablero &&
+      xClick < wh[0] - juego.posTablero
+    ) {
+  
+      //valido posicion dentro del tablero
+      for (let i = 0; i < x.length; i++) {
+        //recorre por columnas
+        if (xClick < x[i]) {
+          colInsert = i;
+          resultInsert = juego.insertarFicha(colInsert, turno.jugador);
+          break;
+        }
+      }
+      switch (resultInsert) {
+        case -1:
+          alert("No hay lugar en esa columna, elija otra")
+          break;
+        default:
+          if(juego.verificarGanador(colInsert, resultInsert)){
+            ganador();
+          }else{
+            cambiarTurno();
+          }
+          break;
+      }
+      mouse = false;
+    }
+    mouse = false;
+    restaurarFichas();
+    juego.limpiar();
+};
+
+// Cambia el turno y disminuye la cantidad de fichas de cada jugador
+function cambiarTurno() {
+  
+    if (turno.jugador == "j1") {
+      turno = jugadorJ2.ficha;
+      jugadorJ1.turnos--;
+      
+    }
+    else if (turno.jugador == "j2") {
+      turno = jugadorJ1.ficha;
+      jugadorJ2.turnos--;
+      
+    }
+}
+
+// dibuja el texto que se encuentra en el lienzo 
+// Como asi tambien el turno y la cantidad de fichas restantes
+function seleccionTurno() {
+    let xv;
+    let yv;
+    let fichaJ1;
+    let fichaJ2;
+  
+    if(turno.jugador==="j1"){
+      xv=jugadorJ1.xv;
+      yv=jugadorJ1.yv / 3;
+      fichaJ1=jugadorJ1.turnos;
+      fichaJ2=jugadorJ2.turnos;
+    }
+    else{
+      xv=jugadorJ2.xv;
+      yv=jugadorJ2.yv / 3;
+      fichaJ2=jugadorJ2.turnos;
+      fichaJ1=jugadorJ1.turnos;
     }
 
-    if (contador == c){
-        ganador = true;
-    }
+    imprimirTexto(jugadorJ1.xv, (jugadorJ1.yv -10), "J1","white", "black");
+    imprimirTexto(jugadorJ2.xv, (jugadorJ1.yv -10), "J2","white", "black" );
+    imprimirTexto(xv,yv,"Turno","green", "white");
+    imprimirTexto(jugadorJ1.xv,jugadorJ1.yv+200,"Fichas: ","black", "white");
+    imprimirTexto(jugadorJ2.xv,jugadorJ2.yv+200,"Fichas: ","black", "white");
+    imprimirTexto((jugadorJ1.xv+100),(jugadorJ1.yv+200),piecesJ1,"red", "red");
+    imprimirTexto((jugadorJ2.xv+100),(jugadorJ2.yv+200),piecesJ2,"red", "red");
+}
 
-    return ganador;
+// Retorna las fichas a su posicion original si no las ubica en el tablero
+function restaurarFichas() {
+    jugadorJ1.ficha.xv = jugadorJ1.xv;
+    jugadorJ1.ficha.yv = jugadorJ1.yv;
+    jugadorJ2.ficha.xv = jugadorJ2.xv;
+    jugadorJ2.ficha.yv = jugadorJ2.yv;
 }
-//las x son las comlumnas e y las filas.Buscamos de forma diagonal de dos formas(de izquierda a der 
-// && de derecha a izq)
-function diagonalIaD(matriz, x, y, jugador, c,yMax){
- let filaIncial=buscarFilaInicio(x,y);
- let colIncial=buscarColInicio(x,y);
-  return recorridoADer(matriz,colIncial,filaIncial,jugador,c,yMax);
 
-}
-function recorridoADer( matriz,  colInicial,  filaInicial,jugador ,c,xMax,yMax) {
-let contador=0;
-let ganador = false;
-//fila
-while (colInicial>xMax && filaInicial<yMax && contador<c){
-    if(jugador.nombre === "j1"){
-        if (matriz[colInicial][filaInicial]==1){
-            contador++;
-        }
-        else {
-            contador=0;
-        }
-    }
-    else if (jugador.nombre === "j2"){
-        if(matriz[colInicial][filaInicial] === 2){
-            contador++;
-            
-        }
-        else {
-           contador=0;
-        }
-    }
-    filaInicial=filaInicial++;
-    colInicial=colInicial++;
-    if(contador === c){
-        ganador = true;
-    }
-}
-return ganador;
-}
-function  buscarFilaInicio(x, y) {
-    let colInicial= x;
-    let filaInicial= y;
-    while (colInicial>0 && filaInicial>0){
-        colInicial=colInicial--;
-        filaInicial=filaInicial--;
-    }
-    return filaInicial;
-}
-function buscarColInicio( x, y) {
-    let colInicial=x;
-     let filaInicial= y;
-    while (colInicial>0&& filaInicial>0){
-        colInicial=colInicial--;
-        filaInicial=filaInicial--;
-    }
-    return colInicial;
-}
-//creo la funcion para recorrer la diagonal de Derecha a Izq
-function diagonalDaI(matriz,x,y,jugador,c,xMax,yMax){
-    let colInicial=buscarColDerercha(x,y,xMax);
-    let filaIncial=buscarFilaDerecha(x,y,xMax);
-    return recorridoIzq(matriz,colInicial,filaIncial,jugador,c,xMax,yMax);
- 
-}
-function buscarColDerercha(x,y,xMax){
-    while( x<xMax && y>0){
-        x=x++;
-        y=y--;
-    }
-    return x;
-}
-function buscarFilaDerecha(x,y,xMax){
-    while( x<xMax && y>0){
-        x=x++;
-        y=y--;
-    }
-    return y;
-}
-function recorridoIzq(matriz,colInicial,filaInicial,jugador,c,xMax,yMax){
- let contador =0;
- while( colInicial>0 && filaIncial<yMax && contador<c){
-    if(jugador.nombre === "j1"){
-        if (matriz[colInicial][filaInicial]==1){
-            contador++;
-        }
-        else {
-            contador=0;
-        }
-    }
-    else if (jugador.nombre === "j2"){
-        if(matriz[colInicial][filaInicial] === 2){
-            contador++;
-            
-        }
-        else {
-           contador=0;
-        }
-    }
-    filaInicial=filaInicial++;
-    colInicial=colInicial--;
-    if(contador === c){
-        ganador = true;
-    }
-    }
-  return ganador;
- }
-
-///////Vertical 
-function vertical(matriz, x, y, jugador, c){
-    let yInic = 0;
-    let yMax = 6;
-    let contador = 0;
-    let ganador = false;
-    while(contador != c && yInic < yMax ){
-        if(matriz[x][yInic] === 1){
-            contador+=1;
-        }
-        yInic++;
-
-
-    }
-
+// Devuelve las referencias a los elementos por su  id
+// Establece el valor del atributo class del elemento (agrega o elimina) segun corresponda 
+// Para mostrar al ganador del juego
+function ganador(){
+    canvas.className += " hidden";
+    let cartelGanador=document.getElementById("ganadorContainer");
+    cartelGanador.classList.remove("hidden");
+    reloj.className += " hidden";
     
-    if(contador == c){
-        ganador = true;
+  
+    if(turno.jugador == "j1"){
+      document.getElementById('textoGanador').innerHTML = "Ganador J1";
+  
     }
-    return ganador;
+    else{
+      document.getElementById('textoGanador').innerHTML = "Ganador J2";
+    }
 }
+
+function endGame(){
+    canvas.className += " hidden"; 
+    let finJuegoContainer=document.getElementById("finJuegoContainer");
+    finJuegoContainer.classList.remove("hidden");
+  
+    document.getElementById('textoFinJuego').innerHTML = "se ha acabado el tiempo o te has quedado sin fichas";
+}
+
+function reiniciarJuego(){
+    canvas.className += " hidden";
+    if(!finJuegoContainer.classList.contains("hidden")){
+      finJuegoContainer.className += " hidden";
+    }
+    let cartelGanador=document.getElementById("ganadorContainer");
+    cartelGanador.className += " hidden";
+    detenerTiempo();
+  }

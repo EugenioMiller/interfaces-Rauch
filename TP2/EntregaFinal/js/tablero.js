@@ -1,83 +1,181 @@
-//let matriz = new Array();
-
-
-class Tablero{
-    constructor (valor){
-        this.valor=valor;
-        this.matriz=new Array();
+class Tablero {
+    //Construnctor
+    constructor(anchoCanvas, altoCanvas){
+        this.anchoCanvas = anchoCanvas;
+        this.altoCanvas = altoCanvas;
+        this.filas = 7;
+        this.columnas = 6; 
+        this.cantFichas = 20; //Fichas con las que inicia cada jugador
+        this.altoFila = ((this.anchoCanvas - 200) / this.filas); //Calculo el tamaño de la ficha
+        this.anchoCol = this.altoFila + 5;
+        this.posTablero = (this.anchoCanvas - this.anchoCol * this.columnas) / 2; //Centra el tablero dent4ro del canvas
+        this.matriz = new Array (this.columnas);
+        this.crearTablero();
+        this.agregarFichas();
+        this.dibujarTablero();
+        this.fichaJ1;
+        this.fichaJ2;
     }
 
-    crearTablero(){
-        if(this.valor==4){
-            let tablero=document.getElementById("tablero");
-            tablero.innerHTML=`<canvas id="canvas">
-            </canvas>`;
-            let canvas = document.getElementById('canvas');
-            let ctx =canvas.getContext('2d');
-            canvas.width=850;
-            canvas.height=600;
-            this.matriz = dibujaEscenario(this.matriz, ctx, this.valor);
+    //Función para crear el tablero
+    crearTablero() {
+        let valorX = this.posTablero;
+        let valorY = 100;
+        for (let i = 0; i < this.columnas; i++) {
+            this.matriz[i] = new Array();
+            for (let j = 0; j < this.filas; j++) {
+              let objeto = {
+                xv: valorX,
+                yv: valorY,
+                altoFila: this.altoFila,
+                jugador: "none",
+              };
+              valorY += this.altoFila + 3;
+              this.matriz[i].push(objeto);
+            }
+            valorX += this.altoFila; //Crear una fila nueva
+            valorY = 100; //seteo el valor de y para comenzar en la columna inicial
+          }
+    }
+
+    dibujarTablero(){
+        for (let i = 0; i < this.matriz.length; i++) {
+            let objeto1 = this.matriz[i];
+            for (let j = 0; j < this.filas; j++) {
+                let objeto2 = objeto1[j];
+                switch (objeto2.jugador) {
+                case "none":
+                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador); 
+                    break;
+                case "j1":
+                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
+                    break;
+                case "j2":
+                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
+                    break;
+                }
+            }
+            }
+            dibujarFicha(
+            this.fichaJ1.xv,
+            this.fichaJ1.yv,
+            this.fichaJ1.altoFila,
+            this.fichaJ1.jugador
+            );
+            dibujarFicha(
+            this.fichaJ2.xv,
+            this.fichaJ2.yv,
+            this.fichaJ2.altoFila,
+            this.fichaJ2.jugador
+            );
+    }
+
+    //funcion limpiar canvas
+    limpiar() {
+        limpiarCanvas();
+        dibujarTurno();
+        this.dibujarTablero(); 
+    }
+
+    //Agrega fichas para cada jugador
+    agregarFichas() {
+        let posJ1 = this.posTablero / 2 - this.altoFila / 2;
+        this.fichaJ1 = {
+            xv: posJ1,
+            yv: this.altoFila * 2,
+            altoFila: this.altoFila,
+            jugador: "J1"
+        }; 
+        
+
+        let posJ2 = this.anchoCanvas - this.posTablero / 2 - this.altoFila / 2;
+        this.fichaJ2 = {
+            xv: posJ2,
+            yv: this.altoFila * 2,
+            altoFila: this.altoFila,
+            jugador: "J2"
+        };
+        
+    }
+
+    //funcion para insertar la ficha en tablero
+    insertarFicha(columna, jugador) {
+        let i = 0; 
+        let col = this.matriz[columna]; //guardo la posición de x
+        if (col[0].jugador === "none") {
+            while (i < col.length && col[i].jugador === "none") {
+                //recorro la columna hasta encontrar o no una ficha
+                i++;
+            }
+            //agrego ficha
+            col[i - 1].jugador = jugador;
+
+            //actualizo el tablero 
+            this.refresh();
+            return i - 1;
+        } 
+        else {
+            return -1;
         }
-        else if(this.valor==5){
-            let tablero=document.getElementById("tablero");
-            tablero.innerHTML=`<canvas id="canvas">
-            </canvas>`;
-            let canvas = document.getElementById('canvas');
-            let ctx =canvas.getContext('2d');
-            canvas.width=400;
-            canvas.height=450;
-            this.matriz = dibujaEscenario(this.matriz, ctx, this.valor);
-        }
-        else if(this.valor==6){
-            let tablero=document.getElementById("tablero");
-            tablero.innerHTML=`<canvas id="canvas">
-            </canvas>`;
-            let canvas = document.getElementById('canvas');
-            let ctx =canvas.getContext('2d');
-            canvas.width=450;
-            canvas.height=500;
-            this.matriz = dibujaEscenario(this.matriz, ctx, this.valor);
-        }
     }
 
-    pintarCirculo(x, y, ficha){
-        let canvas = document.getElementById('canvas');
-        let ctx =canvas.getContext('2d');
-        if( matriz[x][y] === 0)
-            matriz[x][y] = ficha;
-    }
-}
-
-function dibujaEscenario(matriz, ctx, valor){
-    let c, f;
-    if(valor == 4){
-        c = 7;
-        f = 6;
-    }
-    if(valor == 5){
-        c = 8;
-        f = 7;
-    }
-    if(valor == 6){
-        c = 9;
-        f = 8;
-    }
+    //Verifica si hay un ganador
+    verificarGanador(columna, fila) {
+        let jugador = this.matriz[columna][fila].jugador,
+        iterator = columna;
+        let contador = 1;
+        //verifico mi derecha
+        contador += this.verificar(columna, fila, 1, 0, jugador);
+        if (contador < 4) {
+            contador += this.verificar(columna, fila, -1, 0, jugador);
+        }
     
-    
-    for (let x = 0; x < c; x++){ 
-        matriz[x] = new Array();
-        for (let y = 0; y < f; y++){
-            matriz[x][y]= 0;
+        //verifico de forma vertical
+        if (contador < 4) {
+            contador = 1;
+            contador += this.verificar(columna, fila, 0, 1, jugador);
+            if (contador < 4) {
+                contador += this.verificar(columna, fila, 0, -1, jugador);
+            }
+        }
+        //Verifico en diagonal hacia abajo
+        if (contador < 4) {
+            contador = 1;
+            contador += this.verificar(columna, fila, -1, -1, jugador);
+            if (contador < 4) {
+                contador += this.verificar(columna, fila, 1, 1, jugador);
+            }
+        }
+        //Verifico en diagonal hacia arriba
+        if (contador < 4) {
+            contador = 1;
+            contador += this.verificar(columna, fila, -1, 1, jugador);
+            if (contador < this.tipeGame) {
+                contador += this.verificar(columna, fila, 1, -1, jugador);
+            }
+        }
+
+        if(contador>=4){
+            return true;
+        }
+        else{
+            return false
         }
     }
 
-    for(let ancho = 275; ancho < 50*c+275; ancho+=50){
-        for(let alto = 125; alto < 50*(f+2); alto+=50){
-            ctx.beginPath();
-            ctx.arc(ancho, alto, 22, 0, 2 * Math.PI); 
-            ctx.stroke();
+    //Funcion que verifica si hay 4 fichas iguales
+    verificar(columna, fila, direccionCol, direccionFila, jugador) {
+        let contador = 0;
+        let i = columna + direccionCol;
+        let j = fila + direccionFila;
+
+        while (j < this.filas && j >= 0 && i < this.columnas && i >= 0 && this.matriz[i][j].jugador == jugador) {
+            contador++;
+            i += direccionCol;
+            j += direccionFila;
         }
+        
+        return contador;
     }
-    return matriz;
+
 }
-

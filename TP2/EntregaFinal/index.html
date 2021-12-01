@@ -6,36 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
     <title>Entrega Visualizacion</title>
-    <script src="js/ficha.js"></script>
-    <script src="js/jugador.js"></script>
-    <script src="js/juego.js"></script>
-    <script src="js/tablero.js"></script>
 </head>
 <body>
-    <h1>Cuatro en línea</h1>
-    <div id="ficha">
-        <p>Seleccione color de las fichas</p>
-        <button id="c1" value="green" >verde</button>
-        <button id="c2" value="red" >rojo</button>
-        <button id="c3" value="blue">azul</button>
+    <button id="iniciar">Iniciar Juego</button>
+    <div class="hidden" id="ganadorContainer">
+        <p id="textoGanador"></p>
+        <button class="btn restart" id="reinicioGanador">Reiniciar</button>
     </div>
-    <div id="reset">
+    <div class="hidden" id="finJuegoContainer">
+        <p id="textoFinJuego"></p>
+        <button class="btn restart" id="reinicioTiempo">Reiniciar</button>
+    </div>
+    <div class="hidden" id="tiempo">
+        <span id="tiempoLimite">500</span>
+    </div>
+    <canvas class="hidden" id="canvas"></canvas>
 
-    </div>
-    <div id="timer">
-
-    </div>
-    <div id="botones">
-        <p>Seleccione modo de juego</p>
-        <button id="btn4" value="4">4 en lineas</button>
-        <button id="btn5" value="5">5 en lineas</button>
-        <button id="btn6" value="6">6 en lineas</button>
-    </div>
-    <div id="inicio"></div>
-    <div id="tablero">
-        <canvas></canvas>
-    </div>
-
-    <script src="js/main.js"></script>
+    <script src="js/dibujarCanvas.js"></script>
+    <script src="js/tablero.js"></script>
+    <script src="js/juego.js"></script>
 </body>
 </html>
