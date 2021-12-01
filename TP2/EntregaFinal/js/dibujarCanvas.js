@@ -36,21 +36,16 @@ function levantarCanvas() {
   canvas.classList.remove("hidden");
   reloj.classList.remove("hidden");
   ctx.translate(0.5, 0.5);
-  // Cambiamos tamaños.
-  let sizeWidth = (100 * window.innerWidth) / 100;
-  let sizeHeight = ((100 * window.innerHeight) / 100 || 766) - 4;
-  //Hacemos que el canvas sea responsive
-  canvas.width = sizeWidth;
-  canvas.height = sizeHeight;
-  let wh = [sizeWidth, sizeHeight];
+  canvas.width = (100 * window.innerWidth) / 100;
+  canvas.height =((100 * window.innerHeight) / 100 || 766) - 4;
+  let wh = [canvas.width, canvas.height];
   return wh;
 }
 
 //Escribir en el lienzo
-function imprimirTexto(xv, yv, text, colorFill, colorStroke) {
+function imprimirTexto(xv, yv, text, colorStroke) {
   ctx.beginPath();
-  ctx.fillStyle = colorFill; //color de relleno
-  ctx.font = "bold 50px inherit"; //estilo de texto
+  ctx.font = "15px Arial"; //estilo de texto
   ctx.textAlign = "center";
   ctx.fillText(text, xv, yv); //texto con método fill
   ctx.strokeStyle = colorStroke;

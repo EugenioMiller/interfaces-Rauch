@@ -5,7 +5,7 @@ class Tablero {
         this.altoCanvas = altoCanvas;
         this.filas = 6;
         this.columnas = 7; 
-        this.cantFichas = 6*7; //Fichas con las que inicia cada jugador
+        this.cantFichas = this.filas*this.columnas; //Fichas con las que inicia cada jugador
         this.altoFila = ((this.altoCanvas - 200) / this.filas); //Calculo el tamaño de la ficha
         this.anchoCol = this.altoFila + 5;
         this.posTablero = (this.anchoCanvas - this.anchoCol * this.columnas) / 2; //Centra el tablero dent4ro del canvas
@@ -111,7 +111,7 @@ class Tablero {
             col[i - 1].jugador = jugador;
 
             //actualizo el tablero 
-            this.refresh();
+            this.limpiar();
             return i - 1;
         } 
         else {
@@ -121,9 +121,9 @@ class Tablero {
 
     //Verifica si hay un ganador
     verificarGanador(columna, fila) {
-        let jugador = this.matriz[columna][fila].jugador,
-      iterator = col;
+        let jugador = this.matriz[columna][fila].jugador;
         let contador = 1;
+        console.log(jugador)
         //verifico mi derecha
         contador += this.verificar(columna, fila, 1, 0, jugador);
         if (contador < 4) {
