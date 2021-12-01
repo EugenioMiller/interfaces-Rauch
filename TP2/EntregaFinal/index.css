@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: antiquewhite;
+    background-color: rgb(247, 188, 111);
 }
 #tiempo{ 
     position: fixed; 
