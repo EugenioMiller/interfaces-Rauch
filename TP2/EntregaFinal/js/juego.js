@@ -4,7 +4,7 @@ let x = []; //guardo el valor x final de cada columna
 let mouse = false;
 let turno;
 let cantFichas;
-let tiempo;
+let setTime;
 
 let jugadorJ1 = {
     ficha: null,
@@ -65,10 +65,10 @@ function iniciarJuego() {
     jugadorJ1.ficha = juego.fichaJ1;
     jugadorJ1.xv = juego.fichaJ1.xv;
     jugadorJ1.yv = juego.fichaJ1.yv;
-    turn = jugadorJ1.ficha;// seteo a j1 por defecto en el turno para q el inicie el juego
-    time=500;
+    turno = jugadorJ1.ficha;// seteo a j1 por defecto en el turno para q el inicie el juego
+    tiempo=500;
     seleccionTurno();
-    cantFichas= 20;
+    cantFichas= 42;
     jugadorJ1.turnos=cantFichas/2;
     jugadorJ2.turnos=cantFichas/2;
     reloj.classList.remove("hidden");
@@ -76,8 +76,8 @@ function iniciarJuego() {
     
     //una vez instanciado el tablero lo mapeamos para detectar las columnas
     x[0] = juego.posTablero + juego.colW;
-    for (let i = 1; i < juego.cols; i++) {
-      x[i] = x[i - 1] + juego.colW;
+    for (let i = 1; i < juego.columnas; i++) {
+      x[i] = x[i - 1] + juego.anchoCol;
     }
 }
 
@@ -88,9 +88,9 @@ canvas.onmousedown = function (e) {
     let yClick = e.clientY - rect.top; //posición y dentro del elemento.
     if (
       turno.xv < xClick &&
-      turno.xv + turno.rowH > xClick &&
+      turno.xv + turno.altoFila > xClick &&
       turno.yv < yClick &&
-      turno.yv + turno.rowH > yClick
+      turno.yv + turno.altoFila > yClick
     ) {  
       mouse = true;
     }
@@ -102,8 +102,8 @@ canvas.onmousemove = function (e) {
     let x2 = e.clientX - rect.left;
     let y2 = e.clientY - rect.top;
     if (mouse === true) {
-      turno.xv = x2 - turno.rowH / 2; //agarrar la ficha desde el centro
-      turno.yv = y2 - turno.rowH / 2;
+      turno.xv = x2 - turno.altoFila / 2; //agarrar la ficha desde el centro
+      turno.yv = y2 - turno.altoFila / 2;
       juego.limpiar(); //limpia el tablero y lo vuelve a dibujar para no dibujar un "camino" fichas
     }
 };
@@ -191,8 +191,8 @@ function seleccionTurno() {
     imprimirTexto(xv,yv,"Turno","green", "white");
     imprimirTexto(jugadorJ1.xv,jugadorJ1.yv+200,"Fichas: ","black", "white");
     imprimirTexto(jugadorJ2.xv,jugadorJ2.yv+200,"Fichas: ","black", "white");
-    imprimirTexto((jugadorJ1.xv+100),(jugadorJ1.yv+200),piecesJ1,"red", "red");
-    imprimirTexto((jugadorJ2.xv+100),(jugadorJ2.yv+200),piecesJ2,"red", "red");
+    imprimirTexto((jugadorJ1.xv+100),(jugadorJ1.yv+200),fichaJ1,"red", "red");
+    imprimirTexto((jugadorJ2.xv+100),(jugadorJ2.yv+200),fichaJ2,"red", "red");
 }
 
 // Retorna las fichas a su posicion original si no las ubica en el tablero

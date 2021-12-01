@@ -28,8 +28,7 @@ function dibujarFichas(x1, y1, altoFila, jugador) {
         source = img2;
       break;
     }
-    console.log(source);
-    
+
     ctx.drawImage(source, x1, y1, altoFila, altoFila);
 }
 
@@ -51,7 +50,7 @@ function levantarCanvas() {
 function imprimirTexto(xv, yv, text, colorFill, colorStroke) {
   ctx.beginPath();
   ctx.fillStyle = colorFill; //color de relleno
-  ctx.font = "bold 40px inherit"; //estilo de texto
+  ctx.font = "bold 50px inherit"; //estilo de texto
   ctx.textAlign = "center";
   ctx.fillText(text, xv, yv); //texto con método fill
   ctx.strokeStyle = colorStroke;

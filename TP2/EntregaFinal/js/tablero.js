@@ -3,10 +3,10 @@ class Tablero {
     constructor(anchoCanvas, altoCanvas){
         this.anchoCanvas = anchoCanvas;
         this.altoCanvas = altoCanvas;
-        this.filas = 7;
-        this.columnas = 6; 
-        this.cantFichas = 20; //Fichas con las que inicia cada jugador
-        this.altoFila = ((this.anchoCanvas - 200) / this.filas); //Calculo el tamaño de la ficha
+        this.filas = 6;
+        this.columnas = 7; 
+        this.cantFichas = 6*7; //Fichas con las que inicia cada jugador
+        this.altoFila = ((this.altoCanvas - 200) / this.filas); //Calculo el tamaño de la ficha
         this.anchoCol = this.altoFila + 5;
         this.posTablero = (this.anchoCanvas - this.anchoCol * this.columnas) / 2; //Centra el tablero dent4ro del canvas
         this.matriz = new Array (this.columnas);
@@ -45,24 +45,24 @@ class Tablero {
                 let objeto2 = objeto1[j];
                 switch (objeto2.jugador) {
                 case "none":
-                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador); 
+                    dibujarFichas(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador); 
                     break;
                 case "j1":
-                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
+                    dibujarFichas(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
                     break;
                 case "j2":
-                    dibujarFicha(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
+                    dibujarFichas(objeto2.xv, objeto2.yv, objeto2.altoFila, objeto2.jugador);
                     break;
                 }
             }
             }
-            dibujarFicha(
+            dibujarFichas(
             this.fichaJ1.xv,
             this.fichaJ1.yv,
             this.fichaJ1.altoFila,
             this.fichaJ1.jugador
             );
-            dibujarFicha(
+            dibujarFichas(
             this.fichaJ2.xv,
             this.fichaJ2.yv,
             this.fichaJ2.altoFila,
@@ -73,7 +73,7 @@ class Tablero {
     //funcion limpiar canvas
     limpiar() {
         limpiarCanvas();
-        dibujarTurno();
+        seleccionTurno();
         this.dibujarTablero(); 
     }
 
@@ -84,7 +84,7 @@ class Tablero {
             xv: posJ1,
             yv: this.altoFila * 2,
             altoFila: this.altoFila,
-            jugador: "J1"
+            jugador: "j1"
         }; 
         
 
@@ -93,7 +93,7 @@ class Tablero {
             xv: posJ2,
             yv: this.altoFila * 2,
             altoFila: this.altoFila,
-            jugador: "J2"
+            jugador: "j2"
         };
         
     }
@@ -122,7 +122,7 @@ class Tablero {
     //Verifica si hay un ganador
     verificarGanador(columna, fila) {
         let jugador = this.matriz[columna][fila].jugador,
-        iterator = columna;
+      iterator = col;
         let contador = 1;
         //verifico mi derecha
         contador += this.verificar(columna, fila, 1, 0, jugador);
