@@ -63,6 +63,7 @@ h2{ color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text
       height: 20px;
   }
   input[type="text"],
+  input[type="password"],
   input[type="submit"] {
       clear: both;
       float: left;
@@ -76,6 +77,7 @@ h2{ color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text
       outline: 0;
       color: #34495e;
       font-size: 14px;
+      border-radius: 3px;
   }
   input[type=submit] {
       background: #27ae60;
@@ -143,7 +145,10 @@ h2{ color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text
       border-radius: 0px;
   }
   input[type=text]:not([value*=" "]):active,
-  input[type=text]:not([value*=" "]):focus {
+  input[type=text]:not([value*=" "]):focus,
+  input[type=password]:not([value*=" "]):active,
+  input[type=password]:not([value*=" "]):focus
+   {
       /*box-shadow*/
       -webkit-box-shadow: inset 8px 0px 0  #4a77d4;
       -moz-box-shadow: inset 8px 0px 0  #4a77d4;
@@ -182,4 +187,7 @@ h2{ color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text
   input[value*=" Google"]:focus {
       color: #ecf0f1;
       background: #0078a6;
+  }
+  span{
+      color:white;
   }
