@@ -1,0 +1,636 @@
+.perfil-portada{
+    position: absolute;
+    width: 903px;
+    height: 386px;
+    left: 265px;
+    top: 87px;
+
+    border-radius: 12px;
+}
+
+.portada{
+    position: absolute;
+    width: 900px;
+    height: 200px;
+    left: 2px;
+    top: -13px;
+}
+
+.foto{
+    position: absolute;
+    left: 40%;
+    right: 76.63%;
+    top: 52.33%;
+    bottom: 8.81%;
+    
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 47px;
+}
+
+.perfil{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 0px;
+    top: 0px;
+    border-radius: 100px;
+}
+
+.nombre{
+    position: absolute;
+    width: 202px;
+    height: 29px;
+    left: 375px;
+    top: 355px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.seguidos{
+    position: absolute;
+    width: 82px;
+    height: 29px;
+    left: 330px;
+    top: 380px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.seguidores{
+    position: absolute;
+    width: 120px;
+    height: 29px;
+    left: 450px;
+    top: 380px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.pub-mg-fotos{
+    position: relative;
+    width: 462px;
+    height: 33.75px;
+    left: 255px;
+    top: -50px;
+}
+
+.pub{
+    position: absolute;
+    width: 193px;
+    height: 28px;
+    left: 20px;
+    top: 580px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.mg{
+    position: absolute;
+    width: 100px;
+    height: 28px;
+    left: 280px;
+    top: 580px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+
+}
+
+.guardados{
+    position: absolute;
+    width: 61px;
+    height: 28px;
+    left: 500px;
+    top: 580px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.lista-amigos{
+    position: absolute;
+    width: 61px;
+    height: 28px;
+    left: 748px;
+    top: 580px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.publicacion1{
+    position: absolute;
+    width: 706px;
+    height: 693px;
+    left: 273px;
+    top: 596px;
+
+    background: #F4F5F5;
+    border-radius: 12px;
+}
+
+.barra{
+    position: absolute;
+    width: 661px;
+    height: 50px;
+    left: 20px;
+    top: 10px;
+}
+
+.foto-pub{
+    position: absolute;
+    left: 17%;
+    right: 76.88%;
+    top: 25.78%;
+    bottom: 72.1%;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 47px;
+}
+
+.foto-p{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: -120px;
+    top: 0px;
+
+    border-radius: 100px;
+}
+
+.nombre-pub{
+    position: absolute;
+    width: 146px;
+    height: 21px;
+    left: 55px;
+    top: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #3F4444;
+}
+
+.fecha-pub{
+    position: absolute;
+    width: 150px;
+    height: 21px;
+    left: 55px;
+    top: 30px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #3F4444;
+}
+
+.img-pub{
+    position: absolute;
+    width: 704px;
+    height: 435px;
+    left: 2px;
+    top: 90px;
+}
+
+.barra2{
+    position: absolute;
+    width: 656.27px;
+    height: 160px;
+    left: -300px;
+    top: -680px;
+}
+
+.icono-mg{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 330px;
+    top: 1177px;
+}
+
+.icono-coment{
+    position: absolute;
+    width: 50px;
+    height: 35px;
+    left: 600px;
+    top: 1177px;
+}
+
+.icono-comp{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    left: 850px;
+    top: 1177px;
+}
+
+.like{
+    position: absolute;
+    width: 75px;
+    height: 21px;
+    left: 375px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.coment{
+    position: absolute;
+    width: 80px;
+    height: 21px;
+    left: 660px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.comp{
+    position: absolute;
+    width: 81px;
+    height: 21px;
+    left: 892px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.foto.coment{
+    position: absolute;
+    left: 769px;
+    right: 76.88%;
+    top: 52.28%;
+    bottom: 45.6%;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 47px;
+}
+
+.foto-com{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 320px;
+    top: 1250px;
+    border-radius: 100px;
+}
+
+#comentario{
+    position: absolute;
+    width: 568.6px;
+    height: 41.71px;
+    left: 380px;
+    top: 1255px;
+}
+
+.publicacion2{
+    position: absolute;
+    width: 706px;
+    height: 400px;
+    left: 273px;
+    top: 1299px;
+
+    background: #F4F5F5;
+    border-radius: 12px;
+}
+
+.texto-publicacion{
+    position: absolute;
+    width: 706px;
+    height: 693px;
+    left: 0px;
+    top: 100px;
+}
+
+.barra3{
+    position: absolute;
+    width: 656.27px;
+    height: 160px;
+    left: -300px;
+    top: -930px;
+}
+
+.like2{
+    position: absolute;
+    width: 75px;
+    height: 21px;
+    left: 375px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.coment2{
+    position: absolute;
+    width: 80px;
+    height: 21px;
+    left: 660px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.comp2{
+    position: absolute;
+    width: 81px;
+    height: 21px;
+    left: 892px;
+    top: 1174px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.amigos{
+    position: absolute;
+    width: 280px;
+    height: 300px;
+    left: 1000px;
+    top: 596px;
+
+    background: #F4F5F5;
+    border-radius: 12px;
+    transform: rotate(0.42deg);
+}
+
+.foto-amigo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 10px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 5px;
+}
+
+.btn-perfil{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 160px;
+    top: 30px;
+}
+
+.foto-amigo2{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 80px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo2{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 75px;
+}
+
+.btn-perfil2{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 160px;
+    top: 100px;
+}
+
+.foto-amigo3{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 150px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo3{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 145px;
+}
+
+.btn-perfil3{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 160px;
+    top: 170px;
+}
+
+.foto-amigo4{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 225px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo4{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 216px;
+}
+
+.btn-perfil4{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 160px;
+    top: 240px;
+}
+
+.sugerencias h3{
+    position: absolute;
+    width: 133px;
+    height: 28px;
+    left: 20px;
+    top: 6px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #3F4444;
+}
+
+.sugerencias p{
+    position: relative;
+    width: 182px;
+    height: 47px;
+    left: 10px;
+    top: 26px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    
+    color: #3F4444;
+    
+}
