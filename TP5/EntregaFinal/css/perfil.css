@@ -120,6 +120,12 @@
     color: #ffffff;
 }
 
+hr{
+    width: 250px;
+    left: 20px;
+    top: 680px;
+}
+
 .mg{
     position: absolute;
     width: 100px;
@@ -164,7 +170,7 @@
     width: 61px;
     height: 28px;
     left: 748px;
-    top: 580px;
+    top: 600px;
 
     font-family: Roboto;
     font-style: normal;
