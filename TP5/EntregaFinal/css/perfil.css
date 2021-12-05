@@ -25,7 +25,7 @@ header{
 }
 .foto-pubnav{
     position: absolute;
-    left: 380px;
+    left: 15.70%;
     right: 76.88%;
     top: 25.78%;
     bottom: 72.1%;
@@ -195,7 +195,7 @@ hr{
 
 }
 
-a{
+.link{
     text-decoration: none;
     color: #000000;
 }
