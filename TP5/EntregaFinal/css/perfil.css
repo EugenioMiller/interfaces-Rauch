@@ -121,16 +121,16 @@
 }
 
 hr{
-    width: 250px;
+    width: 10px;
     left: 20px;
     top: 680px;
 }
 
 .mg{
     position: absolute;
-    width: 100px;
+    width: 150px;
     height: 28px;
-    left: 280px;
+    left: 260px;
     top: 580px;
 
     font-family: Roboto;
@@ -144,6 +144,11 @@ hr{
 
     color: #ffffff;
 
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
 
 .guardados{
