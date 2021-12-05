@@ -25,7 +25,7 @@ header{
 }
 .foto-pubnav{
     position: absolute;
-    left: 17%;
+    left: 380px;
     right: 76.88%;
     top: 25.78%;
     bottom: 72.1%;
@@ -97,7 +97,7 @@ header{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .seguidos{
@@ -116,7 +116,7 @@ header{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .seguidores{
@@ -135,7 +135,7 @@ header{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .pub-mg-fotos{
@@ -162,7 +162,7 @@ header{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 hr{
@@ -191,13 +191,13 @@ hr{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 
 }
 
 a{
     text-decoration: none;
-    color: white;
+    color: #000000;
 }
 
 .guardados{
@@ -216,7 +216,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .lista-amigos{
@@ -235,7 +235,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .publicacion1{
@@ -283,7 +283,7 @@ a{
     width: 146px;
     height: 21px;
     left: 55px;
-    top: 0px;
+    top: 15px;
 
     font-family: Roboto;
     font-style: normal;
@@ -304,7 +304,7 @@ a{
     width: 150px;
     height: 21px;
     left: 55px;
-    top: 25px;
+    top: 40px;
 
     font-family: Roboto;
     font-style: normal;
@@ -378,7 +378,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .coment{
@@ -399,7 +399,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .comp{
@@ -420,7 +420,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .foto.coment{
@@ -496,7 +496,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .coment2{
@@ -517,7 +517,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .comp2{
@@ -538,7 +538,7 @@ a{
     align-items: center;
     text-align: center;
 
-    color: #ffffff;
+    color: #000000;
 }
 
 .amigos{
