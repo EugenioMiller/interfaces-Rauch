@@ -126,6 +126,10 @@ hr{
     top: 680px;
 }
 
+.hr-post{
+    width: 20px;
+}
+
 .mg{
     position: absolute;
     width: 150px;
@@ -153,7 +157,7 @@ a{
 
 .guardados{
     position: absolute;
-    width: 61px;
+    width: 150px;
     height: 28px;
     left: 500px;
     top: 580px;
@@ -255,7 +259,7 @@ a{
     width: 150px;
     height: 21px;
     left: 55px;
-    top: 30px;
+    top: 25px;
 
     font-family: Roboto;
     font-style: normal;
