@@ -14,7 +14,7 @@
         
         <div class="container-fluid">
             <div class="imagenP">
-                <a class="navbar-brand link" href="#">
+                <a class="navbar-brand link" href="home.html">
                   <img class="logo" src="img/logo.png">
                 </a>
             </div>
@@ -22,7 +22,7 @@
           <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="home.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                         <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
                       </svg>
@@ -55,123 +55,132 @@
         </div>
     </nav>
 </header>
-    <div>
-        <div class="perfil-portada">
-            <div class="portada">
-                <img src="img/portada.jpg" alt="">
-            </div>
-            <div class="foto">
-                <img src="img/perfil.jpg" alt="" class="perfil">
-            </div>
-            <div class="nombre">
-                <p>Uriel López</p>
-            </div>
-            <div class="seguidos">
-                <p>370 Seguidos</p>
-            </div>
-            <div class="seguidores">
-                <p>913 Seguidores</p>
-            </div>
-        </div>
-        <div class="pub-mg-fotos">
-            <div class="pub"> 
-                <hr>
-                <p>Publicaciones</p>
-                <hr>
-            </div>
-            <div class="mg">
-                <a class="link" href="perfilMeGusta.html">Me gustas</a>
-            </div>
-            <div class="guardados">
-                <a class="link" href="perfilPostGuardados.html">Posts guardados</a>
-            </div>
-            <div class="lista-amigos">
-                <p>Amigos</p>
-            </div>
-        </div>
+    <div id="loader-conteiner" class="loader">
+        <img src="img/loading.gif" alt="" id="imgLoad">
+        <p class="pCarga" id="pLoad">Cargando...</p>
     </div>
-    <div>
-        <div class="publicacion1">
-            <div class="barra">
-                <div class="foto-pub">
-                    <img src="img/perfil.jpg" alt="" class="foto-p">
+    <div id="espera" hidden>
+        <div >
+            <div class="perfil-portada">
+                <div class="portada">
+                    <img src="img/portada.jpg" alt="">
                 </div>
-                <div>
-                    <p class="nombre-pub">Uriel López</p>
-                    <p class="fecha-pub">Hace 3 días</p>
+                <div class="foto">
+                    <img src="img/perfil.jpg" alt="" class="perfil">
                 </div>
-            </div>
-            <div class="img-pub">
-                <img src="img/publicacion.jpg" alt="" width="704px">
-            </div>
-            <div class="barra2">
-                <div>
-                    <img src="img/like.png" alt="" class="icono-mg">
-                    <p class="like">Me Gusta</p>
-                    <img src="img/comentar.png" alt="" class="icono-coment">
-                    <p class="coment">Comentar</p>
-                    <img src="img/compartir.png" alt="" class="icono-comp">
-                    <p class="comp">Compartir</p>
+                <div class="nombre">
+                    <p>Uriel López</p>
                 </div>
-                <div class="foto-coment">
-                    <img src="img/perfil.jpg" alt="" class="foto-com">
-                    <input type="search" name="" id="comentario" placeholder="Escribe un comentario">
+                <div class="seguidos">
+                    <p>370 Seguidos</p>
+                </div>
+                <div class="seguidores">
+                    <p>913 Seguidores</p>
                 </div>
             </div>
-        </div>
-        <div class="publicacion2">
-            <div class="barra">
-                <div class="foto-pub">
-                    <img src="img/perfil.jpg" alt="" class="foto-p">
+            <div class="pub-mg-fotos">
+                <div class="pub"> 
+                    <hr>
+                    <p>Publicaciones</p>
+                    <hr>
                 </div>
-                <div class="texto-publicacion">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                        Vel error ab ratione excepturi, illo voluptatibus inventore fugit accusamus magnam quasi alias in, 
-                        aliquid sit laudantium nihil quam itaque obcaecati architecto.</p>
+                <div class="mg">
+                    <a class="link" href="perfilMeGusta.html">Me gustas</a>
                 </div>
-                <div>
-                    <p class="nombre-pub">Uriel López</p>
-                    <p class="fecha-pub">Hace 5 días</p>
+                <div class="guardados">
+                    <a class="link" href="perfilPostGuardados.html">Posts guardados</a>
                 </div>
-            </div>
-            <div class="barra3">
-                <div>
-                    <img src="img/like.png" alt="" class="icono-mg">
-                    <p class="like2">Me Gusta</p>
-                    <img src="img/comentar.png" alt="" class="icono-coment">
-                    <p class="coment2">Comentar</p>
-                    <img src="img/compartir.png" alt="" class="icono-comp">
-                    <p class="comp2">Compartir</p>
-                </div>
-                <div class="foto-coment">
-                    <img src="img/perfil.jpg" alt="" class="foto-com">
-                    <input type="search" name="" id="comentario" placeholder="Escribe un comentario">
+                <div class="lista-amigos">
+                    <p>Amigos</p>
                 </div>
             </div>
         </div>
+        <div>
+            <div class="publicacion1">
+                <div class="barra">
+                    <div class="foto-pub">
+                        <img src="img/perfil.jpg" alt="" class="foto-p">
+                    </div>
+                    <div>
+                        <p class="nombre-pub">Uriel López</p>
+                        <p class="fecha-pub">Hace 3 días</p>
+                    </div>
+                </div>
+                <div class="img-pub">
+                    <img src="img/publicacion.jpg" alt="" width="704px">
+                </div>
+                <div class="barra2">
+                    <div>
+                        <img src="img/like.png" alt="" class="icono-mg">
+                        <p class="like">Me Gusta</p>
+                        <img src="img/comentar.png" alt="" class="icono-coment">
+                        <p class="coment">Comentar</p>
+                        <img src="img/compartir.png" alt="" class="icono-comp">
+                        <p class="comp">Compartir</p>
+                    </div>
+                    <div class="foto-coment">
+                        <img src="img/perfil.jpg" alt="" class="foto-com">
+                        <input type="search" name="" id="comentario" placeholder="Escribe un comentario">
+                    </div>
+                </div>
+            </div>
+            <div class="publicacion2">
+                <div class="barra">
+                    <div class="foto-pub">
+                        <img src="img/perfil.jpg" alt="" class="foto-p">
+                    </div>
+                    <div class="texto-publicacion">
+                        <p>¡Las ballenas tienen pelo! Antes de nacer, 
+                            su cuerpo está cubierto en un vello corporal aterciopelado llamado 'lanugo' 
+                            y algunas incluso lo conservan de adultos.</p>
+                    </div>
+                    <div>
+                        <p class="nombre-pub">Uriel López</p>
+                        <p class="fecha-pub">Hace 5 días</p>
+                    </div>
+                </div>
+                <div class="barra3">
+                    <div>
+                        <img src="img/like.png" alt="" class="icono-mg">
+                        <p class="like2">Me Gusta</p>
+                        <img src="img/comentar.png" alt="" class="icono-coment">
+                        <p class="coment2">Comentar</p>
+                        <img src="img/compartir.png" alt="" class="icono-comp">
+                        <p class="comp2">Compartir</p>
+                    </div>
+                    <div class="foto-coment">
+                        <img src="img/perfil.jpg" alt="" class="foto-com">
+                        <input type="search" name="" id="comentario" placeholder="Escribe un comentario">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="amigos">
+            <div>
+                <img src="img/perfilamigo.jpg" alt="" class="foto-amigo">
+                <p class="nombre-amigo">Eusebio Malcorra</p>
+                <button class="btn-perfil">Ver perfil</button>
+            </div>
+            <div>
+                <img src="img/amiga.jpg" alt="" class="foto-amigo2">
+                <p class="nombre-amigo2">Marianela Rafael</p>
+                <button class="btn-perfil2">Ver perfil</button>
+            </div>
+            <div>
+                <img src="img/amigo2.jpg" alt="" class="foto-amigo3">
+                <p class="nombre-amigo3">Roberto Lucio</p>
+                <button class="btn-perfil3">Ver perfil</button>
+            </div>
+            <div>
+                <img src="img/amiga2.jpg" alt="" class="foto-amigo4">
+                <p class="nombre-amigo4">Albertina Sabello</p>
+                <button class="btn-perfil4">Ver perfil</button>
+            </div>
+        </div>
+
     </div>
-    <div class="amigos">
-        <div>
-            <img src="img/perfilamigo.jpg" alt="" class="foto-amigo">
-            <p class="nombre-amigo">Eusebio Malcorra</p>
-            <button class="btn-perfil">Ver perfil</button>
-        </div>
-        <div>
-            <img src="img/amiga.jpg" alt="" class="foto-amigo2">
-            <p class="nombre-amigo2">Marianela Rafael</p>
-            <button class="btn-perfil2">Ver perfil</button>
-        </div>
-        <div>
-            <img src="img/amigo2.jpg" alt="" class="foto-amigo3">
-            <p class="nombre-amigo3">Roberto Lucio</p>
-            <button class="btn-perfil3">Ver perfil</button>
-        </div>
-        <div>
-            <img src="img/amiga2.jpg" alt="" class="foto-amigo4">
-            <p class="nombre-amigo4">Albertina Sabello</p>
-            <button class="btn-perfil4">Ver perfil</button>
-        </div>
-    </div>
+
+    <script src="js/load.js"></script>
 </body>
 </body>
 </html>
