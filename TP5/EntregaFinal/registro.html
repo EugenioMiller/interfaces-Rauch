@@ -12,19 +12,19 @@
     <h2>Formulario de registro</h2>
     <div>
     <span>Nombre</span>
-    <input type="text" id="name" name="name" autocomplete="off" placeholder="Nombre"/>
+    <input type="text" id="name" name="name" autocomplete="off" required="required" placeholder="Nombre"/>
     </div>
     <div>
     <span>Apellido</span>
-    <input type="text" id="name" name="name" autocomplete="off" placeholder="Apellido"/>
+    <input type="text" id="name" name="name" autocomplete="off" required="required" placeholder="Apellido"/>
     </div>  
     <div>
     <span>Mail</span>
-    <input type="text" id="mail" name="mail" autocomplete="off" placeholder="Mail" />
+    <input type="mail" id="mail" name="mail" autocomplete="off"required="required" placeholder="Mail" />
     </div>
     <div>
     <span>Contraseña</span>
-    <input type="password" id="password" name="password"  placeholder="Contraseña" />
+    <input type="password" id="password" name="password" required="required" placeholder="Contraseña" />
     </div>
     <div>
     <span>Repite la contraseña</span>
@@ -35,9 +35,7 @@
     <label for="tos">Acepto los <a href="">Terminos y condiciones</a></label>
   
     <!--  // // // // // // // // // //  -->
-    <input type="submit" id="submit" name="Registrarse" class="btn btn-primary btn-block btn-large" value=" Registrarse"/>
-    <input type="submit" id="submit" name="submit" value=" Facebook"/>
-    <input type="submit" id="submit" name="submit" value=" Google"/>
+    <input type="button" id="submit" name="Registrarse" class="btn btn-primary btn-block btn-large" value=" Registrarse"/>
   </div>
 </body>
 </html>
