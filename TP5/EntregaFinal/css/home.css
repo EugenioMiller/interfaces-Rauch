@@ -1,4 +1,15 @@
-
+.loader{
+    width: 100%;
+    height: 100%;
+    top: 10%;
+    left: 1000px;
+    text-align: center;
+}
+.pCarga{
+    text-align: center;
+    font-size: 30px;
+    top: 0px;
+}
 header{
     position: fixed;
     width: 100%;
