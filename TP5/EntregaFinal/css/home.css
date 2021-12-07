@@ -8,8 +8,12 @@ header{
 	font-family: 'Open Sans', sans-serif;
 	background-color: rgba(153, 29, 250,100);
 }
-.bi-house-door-fill,.bi-bell-fill, .bi-chat-left-dots-fill{
+.bi-house-door-fill, .bi-bell-fill, .bi-chat-left-dots-fill{
     color: white;
+    cursor: pointer;
+}
+.bi-house-door-fill{
+    border-bottom: 2px solid white;
 }
 .logo{
     width: 5%;
@@ -165,19 +169,28 @@ header{
     left: 330px;
     top: 1177px;
 }
+.puntero{
+    width:125px;
+    height: 20px;
+    background-color:  #040808;
+    cursor: pointer;
+}
+.megusta:hover{
+    background-color:  #3F4444;
+}
 
 .icono-coment{
     position: absolute;
-    width: 50px;
-    height: 35px;
+    width:25px;
+    height: 25px;
     left: 600px;
-    top: 1177px;
+    top: 1182px;
 }
 
 .icono-comp{
     position: absolute;
-    width: 35px;
-    height: 35px;
+    width: 22px;
+    height: 22px;
     left: 850px;
     top: 1177px;
 }
@@ -195,7 +208,7 @@ header{
     width: 75px;
     height: 21px;
     left: 375px;
-    top: 1174px;
+    top: 1186px;
 
     font-family: Roboto;
     font-style: normal;
@@ -214,8 +227,8 @@ header{
     position: absolute;
     width: 80px;
     height: 21px;
-    left: 660px;
-    top: 1174px;
+    left: 640px;
+    top: 1183px;
 
     font-family: Roboto;
     font-style: normal;
@@ -230,13 +243,13 @@ header{
 
     color: #000000;
 }
-
+ 
 .comp{
     position: absolute;
     width: 81px;
     height: 21px;
-    left: 892px;
-    top: 1174px;
+    left: 888px;
+    top: 1181px;
 
     font-family: Roboto;
     font-style: normal;

@@ -22,14 +22,14 @@
           <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" id="iconoCasa" href="home.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                         <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
                       </svg>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="mensajes.html">
+                <a class="nav-link" id="iconoMensaje" href="mensajes.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-dots-fill" viewBox="0 0 16 16">
                         <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                       </svg>
@@ -42,10 +42,10 @@
                       </svg>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item ">
                 <a class="nav-link disabled">
-                <div class="foto-pub">
-                    <a href="perfil.html"><img src="img/perfil.jpg" alt="" class="foto-p"></a>
+                <div class="foto-pubnav">
+                    <a href="perfil.html"><img src="img/perfil.jpg" alt="" class="foto-pnav"></a>
                 </div>
                 </a>
               </li>
@@ -80,14 +80,18 @@
           <img src="img/publicacion.jpg" alt="" width="704px">
       </div>
       <div class="barra2">
-          <div>
-              <img src="img/like.png" alt="" class="icono-mg">
+              <div class="puntero">
+              <img src="img/likeNegro.png" alt="" class="icono-mg">
               <p class="like">Me Gusta</p>
-              <img src="img/comentar.png" alt="" class="icono-coment">
+              </div>
+              <div class="puntero">
+              <img src="img/comentarN.png" alt="" class="icono-coment">
               <p class="coment">Comentar</p>
+              </div>
+              <div class="puntero">
               <img src="img/compartir.png" alt="" class="icono-comp">
               <p class="comp">Compartir</p>
-          </div>
+              </div>
           <div class="foto-coment">
               <img src="img/perfil.jpg" alt="" class="foto-com">
               <input type="search" name="" id="comentario" placeholder="Escribe un comentario">

@@ -18,6 +18,9 @@
 .bi-house-door-fill,.bi-bell-fill, .bi-chat-left-dots-fill{
     color: white;
 }
+.bi-chat-left-dots-fill{
+    border-bottom: 2px solid white;
+}
 img{
     width: 5%;
     height: 5%;
