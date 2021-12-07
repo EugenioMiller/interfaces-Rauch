@@ -264,6 +264,18 @@ header{
 
     color: #000000;
 }
+.foto-pnav{
+    
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        left: 995px;
+        top: 4px;
+    
+        border-radius: 100px;
+      
+    
+}
 .foto.coment{
     position: absolute;
     left: 769px;
