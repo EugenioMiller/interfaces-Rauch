@@ -7,7 +7,7 @@ btn.addEventListener('click', () => {
         reaccionado = false;
     }
     else{
-        btn.setAttribute("src", "img/like.png")
+        btn.setAttribute("src", "img/likeAzul.png")
         reaccionado = true;
     }
 });
