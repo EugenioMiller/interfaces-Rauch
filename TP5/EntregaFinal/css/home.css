@@ -19,6 +19,17 @@ header{
 	font-family: 'Open Sans', sans-serif;
 	background-color: rgba(153, 29, 250,100);
 }
+
+.btn-lupa{
+    width: 4%;
+    height: 3%;
+}
+
+.lupa{
+    width: 100%;
+    height: 100%;
+}
+
 .bi-house-door-fill, .bi-bell-fill, .bi-chat-left-dots-fill{
     color: white;
     cursor: pointer;
