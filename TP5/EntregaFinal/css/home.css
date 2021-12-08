@@ -384,6 +384,9 @@ header{
     border-radius: 100px;
 }
 
+.reaccion{
+    transform: scale(1);
+}
 .nombre-amigo2{
     position: absolute;
     width: 50px;
