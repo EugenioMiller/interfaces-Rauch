@@ -320,6 +320,101 @@ header{
     left: -300px;
     top: -680px;
 }
+
+.amigos{
+    position: absolute;
+    width: 355px;
+    height: 140px;
+    left: 1050px;
+    top: 120px;
+
+    background: #F4F5F5;
+    border-radius: 12px;
+    transform: rotate(0.42deg);
+}
+
+.tituloSugerencia{
+    position: relative;
+    font-family: Roboto;
+    top: -30px;
+    left: 5px;
+}
+
+.foto-amigo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 10px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 5px;
+}
+
+.nombre-amigo{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 5px;
+}
+
+.btn-perfil{
+    position: absolute;
+    width: 180px;
+    height: 25px;
+    left: 160px;
+    top: 20px;
+}
+
+.foto-amigo2{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 80px;
+
+    border-radius: 100px;
+}
+
+.nombre-amigo2{
+    position: absolute;
+    width: 50px;
+    height: 500px;
+    left: 80px;
+    top: 75px;
+}
+
+.btn-perfil2{
+    position: absolute;
+    width: 180px;
+    height: 25px;
+    left: 160px;
+    top: 90px;
+    border-radius: 4px;
+}
+
+.publicida {
+    position: absolute;
+    left: 1050px;
+    top: 340px;
+    width: 350px;
+    height: 400px;
+    font-family: Roboto;
+}
+
+.imgPubli{
+    width: 100%;
+    height: 100%;
+}
+
 #comentario{
     position: absolute;
     width: 568.6px;
